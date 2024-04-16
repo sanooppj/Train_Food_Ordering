@@ -1,0 +1,164 @@
+{% extends 'admin_index_page.html' %}
+{% load static %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th, td {
+            text-align: center;
+            border: 1px solid #555;
+
+        }
+
+        th {
+            background-color: rgb(211, 211, 229);
+        }
+
+        .description-cell {
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .description-line {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .description-content {
+            display: none;
+            white-space: pre-line;
+            overflow: hidden;
+        }
+
+        .expand-button,
+        .collapse-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px;
+            cursor: pointer;
+            color: blue;
+        }
+
+        .collapse-button {
+            display: none;
+        }
+
+        .action-container {
+            max-width:55px;
+        }
+
+        /* Add the following CSS for the specified columns */
+        .max-width-category {
+            max-width: 100px; /* Adjust the max-width as needed */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; /* Add ellipsis for overflow text */
+        }
+
+        .max-width-item {
+            max-width: 60px; /* Adjust the max-width as needed */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; /* Add ellipsis for overflow text */
+        }
+
+        .max-width-availability {
+            max-width: 60px; /* Adjust the max-width as needed */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; /* Add ellipsis for overflow text */
+        }
+    </style>
+</head>
+<body>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h3 style="color: blue; margin-bottom: 20px; margin-top: -20px;">Vendors Details</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="max-width-category">Vendor Name</th>
+                         <th>email</th>
+                        <th>status</th>
+                       <th colspan="5" style="width:230px !important;">Actions</th>
+                      </tr>
+                </thead>
+                {% for i in data %}
+                <tbody>
+                    <tr>
+                        <td class="max-width-category">{{ i.username }}</td>
+
+                        <td>{{ i.email }}</td>
+                        <td>{{ i.is_approved }}</td>
+
+                        <td class="action-container" >
+                            <a href="{% url 'approve_vendor' i.id %}">
+                                <button class="btn btn-success">Approve</button>
+                            </a>
+                        </td>
+                        <td class="action-container" >
+                            <a href="{% url 'reject_vendor' i.id %}">
+                                <button class="btn btn-danger">Reject</button>
+                            </a>
+                        </td>
+                          <td class="action-container">
+    <a href="{% url 'delete_vendor' i.id %}" onclick="return confirm('Are you sure you want to delete this vendor? This action cannot be undone.');">
+                                <button class="btn btn-danger">Delete</button>
+    </a>
+</td>
+                        <td class="action-container">
+                <a href="{% url 'view_vendor_reviews' i.id %}">
+                    <button class="btn btn-info">Reviews</button>
+                </a>
+            </td>                        <td class="action-container">
+    <a href="{% url 'food_single_table' i.id %}">
+                    <button class="btn btn-warning">View</button>
+                </a>
+            </td>
+
+                                                                {% endfor %}
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    // Using event delegation for dynamically added elements
+    $(document).on("click", ".expand-button", function() {
+        expandDescription(this);
+    });
+
+    $(document).on("click", ".collapse-button", function() {
+        collapseDescription(this);
+    });
+
+    function expandDescription(button) {
+        var descriptionCell = $(button).parent(".description-cell");
+        descriptionCell.find(".description-line").hide();
+        descriptionCell.find(".description-content").slideDown();
+        $(button).hide();
+        descriptionCell.find(".collapse-button").show();
+    }
+
+    function collapseDescription(button) {
+        var descriptionCell = $(button).parent(".description-cell");
+        descriptionCell.find(".description-content").slideUp();
+        $(button).hide();
+        descriptionCell.find(".expand-button").show();
+        descriptionCell.find(".description-line").show();
+    }
+</script>
+
+</body>
+</html>
+{% endblock %}

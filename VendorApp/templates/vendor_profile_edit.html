@@ -1,0 +1,425 @@
+{% extends 'vendor_profile_page.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Art Gallery</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    .userspan{
+	 color: #fff;
+	font-weight: 700;
+	padding: 15px;
+	}
+
+		.userspan:hover{
+	color:#F28123;
+	}
+
+
+
+/*
+/* User Cards */
+.user-box {
+    width: 120px;
+    margin: auto;
+    margin-bottom: 20px;
+
+}
+
+.user-box img {
+    width: 120%;
+    border-radius: 50%;
+	padding: 3px;
+	background: #fff;
+	-webkit-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card .tab-content{
+	padding: 1rem 0 0 0;
+}
+
+.z-depth-3 {
+    -webkit-box-shadow: 0 11px 7px 0 rgba(0,0,0,0.19),0 13px 25px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 11px 7px 0 rgba(0,0,0,0.19),0 13px 25px 0 rgba(0,0,0,0.3);
+}
+
+
+	.customarrows:hover{
+	color:#44067b !important;
+	}
+
+
+
+
+  .alert-container {
+            position: fixed;
+            top: -100px; /* Initially off-screen */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 100%;
+            max-width: 400px; /* Adjust width as needed */
+            text-align: center;
+            animation: slideDown 0.5s forwards;
+        }
+
+        @keyframes slideDown {
+            0% {
+                top: -100px; /* Off-screen */
+            }
+            100% {
+                top: 100px; /* 100px down from top */
+            }
+        }
+
+.alert {
+	position: relative;
+	margin-bottom: 15px;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+
+.alert-success {
+	color: black;
+    background-color:white;
+	border: 1px solid green !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-warning {
+	color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-error {
+    color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+
+/* Custom styles for the modal */
+  #deleteAccountModal .modal-dialog {
+    max-width: 480px; /* Set the max-width */
+    margin: 100px auto 0; /* Center the modal horizontally and set distance from top to 100px */
+  }
+
+  #deleteAccountModal .modal-content {
+    height: 240px; /* Set the height */
+    background-color: white;
+    border:1px double #fd7e14;
+    border-radius: 10px; /* Add border radius of 10px */
+    padding: 20px 20px 0; /* Adjusted padding without bottom padding */
+}
+
+        #deleteAccountModal .modal-footer button {
+    margin-top: 60px; /* Adjust this value as needed */
+}
+
+/* Define the color when the button is clicked or active */
+    .customarrows:active {
+        color: black !important;
+    }
+
+  .user_link {
+    display: inline-block;
+    width: 35px; /* Adjust the width as needed to create a circle */
+    height: 35px; /* Adjust the height as needed to create a circle */
+    border-radius: 50%; /* This will create a circle */
+    text-align: center;
+    line-height: 40px; /* Center the icon vertically */
+    border: 2px solid #6909bd;; /* Set border color to violet */
+    background-color: transparent; /* No background color */
+    margin-right: 140px; /* Adjust margin-right as needed */
+}
+
+.user_link i {
+margin-top:7px;
+margin-left:1.5px;
+font-size:17px;
+color:#6909bd;
+}
+
+
+
+</style>
+</head>
+<body >
+
+
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-4">
+            <div class="profile-card-4 z-depth-3">
+            <div class="card">
+            <div class="card-body text-center  rounded-top"  style="background: linear-gradient(to bottom, #6909bd, #6909bd);">
+				{% for i in vendor_profile %}
+
+				<div class="d-flex justify-content-center mb-4 rounded-circle user-box">
+					<img  src="{{i.logo.url}}"
+					class="rounded-circle" style="width: 110px; height: 110px; object-fit: cover;" alt="example placeholder" />
+				</div>
+			{% empty %}
+			<div class="user-box">
+				<img src="{% static 'admin2/assets/images/usericon1.png' %}"  style="border:2px solid #6909bd;display:cover;" alt="" name="image" >
+			   </div>
+			   {% endfor %}
+			{% if request.session.Username %}
+            <h5 class="mb-1 text-white">{{request.session.Username}}</h5>
+			{% endif %}
+            </div>
+            <div class="card-body">
+            <ul class="list-group shadow-none">
+
+            <li class="list-group-item ">
+                <a href="{% url 'vendor_profile_page' %}" class="px-5 customarrows {% if request.resolver_match.url_name == 'profile_page' %}active{% endif %}" style="color:#6909bd;font-weight:bold;height:15px;padding-bottom:30px;"><i class="fas fa-tachometer-alt" style="margin-right:10px;"></i> Dashboard</span></a>
+                </li>
+         <li class="list-group-item">
+           <a href="{% url 'vendor_profile_edit' %}" class="px-5 customarrows {% if request.resolver_match.url_name == 'vendor_profile_edit' or request.resolver_match.url_name == 'vendor_profile_add-details' %}active{% endif %}" style="color:#6909bd;font-weight:bold;height:15px;padding-bottom:30px;"><i class="fas fa-user-edit" style="margin-right:10px;"></i>Edit Profile</a>
+			</li>
+			
+				<li class="list-group-item">
+    <a href="#" class="px-5 customarrows" style="color: #6909bd; font-weight: bold; height: 15px; padding-bottom: 30px;" data-toggle="modal" data-target="#logoutModal">
+        <i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i> Logout
+    </a>
+</li>
+
+<!-- Logout Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                  <h5 class="modal-title" id="logoutModalLabel">
+                    <div style="display: flex; align-items: center;">
+					<i class="fas fa-exclamation-circle" style="margin-right: 6px;margin-top:-2px;"></i>
+                        <div>Are you sure you want to logout ?</div>
+                    </div>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" style="margin-top:20px;" data-dismiss="modal">Cancel</button>
+				&nbsp;
+                <a href="" class="btn btn-primary" style="margin-top:20px;">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+             <form action="" method="post">
+					{% csrf_token %}
+               <li class="list-group-item">
+					<button type="button" class=" px-5 customarrows" style="color:#6909bd;font-weight:bold;height:15px;padding-bottom:30px;border:none;background-color:white;" data-toggle="modal" data-target="#deleteAccountModal">
+						<i class="fas fa-trash" style="margin-right:10px;"></i> Delete Account
+					</button>
+				</li>
+
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" role="dialog" aria-labelledby="deleteAccountModalLabelw" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                  <h5 class="modal-title" id="deleteAccountModalLabel">
+                    <div style="display: flex; align-items: center;">
+					<i class="fas fa-exclamation-circle" style="margin-right: 6px;margin-top:-78px;"></i>
+                        <div>Are you sure you want to delete your account ?     <span><p>your all data will be deleted permanently and can't be restored.</p></span></div>
+
+                    </div>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" style="margin-top:20px;" data-dismiss="modal">Cancel</button>
+				&nbsp;
+				<button  type="submit" class="btn btn-primary" style="margin-top:20px;">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>				</form>
+
+
+
+            </ul>
+
+            </div>
+            </div>
+            </div>
+            </div>
+            <br><br><br>
+<div class="col-lg-8">
+            <div class="card z-depth-3">
+            <div class="card-body">
+            <ul class="nav nav-pills nav-pills-primary nav-justified">
+
+            </ul>
+            <div class="tab-content p-3">
+  <div class="tab-pane active show" id="edit">
+                      <h3 class="p-2 " style="border-bottom: 2px solid #6909bd;font-weight:bold;">Edit Profile</h3><br><br>
+
+
+
+
+
+
+            <form method="post" action="{% url 'vendor_update_profile' p_id=profile.id %}" enctype="multipart/form-data">
+                {%csrf_token%}
+                <div>
+    <div class="d-flex justify-content-center mb-4">
+        <img id="selectedAvatar" src="{{profile.logo.url}}"
+        class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;" alt="example placeholder" />
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="btn btn-primary btn-rounded">
+            <label class="form-label text-white m-1" for="customFile2">Choose file</label>
+            <input type="file" class="form-control d-none" name="image" id="customFile2" onchange="displaySelectedImage(event, 'selectedAvatar')" />
+
+        </div>&nbsp;&nbsp;&nbsp;
+        <input type="button" class="btn btn-danger" id="removeImageButton"  value="Remove" onclick="removeImage()">
+        <input type="hidden" name="image_removed" id="imageRemoved" value="False">
+
+    </div>
+</div><br>
+    <div class="form-group row mb-2">
+        <label class="col-lg-3 col-form-label form-control-label">Username</label>
+        <div class="col-lg-9">
+            <input class="form-control" type="text" name="new_username" value="{{request.session.Username}}" >
+            <input class="form-control" type="hidden" name="Username" value="{{request.session.Username}}">
+
+        </div>
+        </div>
+        <div class="form-group row mb-2">
+            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+            <div class="col-lg-9">
+                <input class="form-control" type="email" name="new_email" value="{{request.session.Email}}" >
+                <input class="form-control" type="hidden" name="Email" value="{{request.session.Email}}">
+
+
+            </div>
+            </div>
+          
+            <div class="form-group row mb-2">
+                <label class="col-lg-3 col-form-label form-control-label">Description</label>
+                <div class="col-lg-9">
+                   <input class="form-control" type="text" value="{{ profile.description|default:'' }}" name="description" placeholder="Description" required>
+
+                </div>
+                </div>
+        <div class="form-group row mb-2">
+        <label class="col-lg-3 col-form-label form-control-label">Address</label>
+        <div class="col-lg-9">
+   <input class="form-control" type="text" value="{{ profile.address|default:'' }}" name="address" placeholder="Enter Address" required>
+        </div>
+        </div>
+        <div class="form-group row mb-2">
+        <label class="col-lg-3 col-form-label form-control-label">Conatct No</label>
+        <div class="col-lg-9">
+<input class="form-control" type="number" value="{{ profile.contact|default:'' }}" pattern="\d{10}"  name="contact" maxlength="10" placeholder="Enter Conatct Number" required>
+        </div>
+        </div>
+
+
+
+        <div class="form-group row mb-2">
+        <label class="col-lg-3 col-form-label form-control-label"></label>
+        <div class="col-lg-6">
+        <input class="form-control" type="text" value="{{ profile.website|default:'' }}" name="website"  placeholder="Website" required>
+        </div>
+        <div class="col-lg-3">
+        <input class="form-control" type="text" value="{{ profile.location|default:'' }}" name="location" placeholder="Location" required>
+        </div>
+        </div>  
+           
+            <br><br>
+            <div class="form-group row mb-3">
+            <label class="col-lg-3 col-form-label form-control-label"></label>
+            <div class="col-lg-9">
+           <input type="reset" class="btn btn-secondary px-4 " style="margin-left:20px;padding:7px;font-size:14px; border-radius:10px !important;" value="Cancel">
+           <input type="submit" class="btn btn-primary "  style="margin-left:20px;padding:8px;padding-left:15px;padding-right:15px;font-size:14px;border-radius:10px !important; " value="Save Changes">
+
+
+
+            </div>
+            </div>
+            </form>
+            </div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+            <script>
+                window.onload = function () {
+                    const existingImageUrl = "{{ profile.profile_image.url }}";
+                    if (existingImageUrl) {
+                        document.getElementById('selectedAvatar').src = existingImageUrl;
+                        // Check if the existing image is the default image
+                        if (existingImageUrl = "{% static 'admin2/assets/images/usericon1.png' %}") {
+                            // If it's the default image, hide the remove button
+                            document.getElementById('removeImageButton').style.display = 'none';
+                        } else {
+                            // If it's not the default image, show the remove button
+                            document.getElementById('removeImageButton').style.display = 'inline-block';
+                        }
+                    }
+                };
+
+                function removeImage() {
+                    // Reset the value of the file input field
+                    document.getElementById('customFile2').value = '';
+                    // Reset the selected image
+                    document.getElementById('selectedAvatar').src = "{% static 'admin2/assets/images/usericon1.png' %}";
+
+                    // Hide the remove button if the default image is set
+                    document.getElementById('removeImageButton').style.display = 'none';
+
+                    // Set the value of the hidden input to indicate image removal
+                    document.getElementById('imageRemoved').value = 'True';
+                }
+
+                function displaySelectedImage(event, elementId) {
+                    const selectedImage = document.getElementById(elementId);
+                    const fileInput = event.target;
+
+                    if (fileInput.files && fileInput.files[0]) {
+                        const reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            selectedImage.src = e.target.result;
+                            // Show the remove button when a new image is selected
+                            document.getElementById('removeImageButton').style.display = 'inline-block';
+                        };
+
+                        reader.readAsDataURL(fileInput.files[0]);
+                    } else {
+                        // If no file is selected, and the existing image is not the default, show the remove button
+                        const existingImageUrl = "{{ profile.profile_image.url }}";
+                        if (existingImageUrl && existingImageUrl != "{% static 'admin2/assets/images/usericon1.png' %}") {
+                            document.getElementById('removeImageButton').style.display = 'inline-block';
+                        } else {
+                            // Otherwise, hide the remove button
+                            document.getElementById('removeImageButton').style.display = 'none';
+                        }
+                    }
+                }
+            </script>
+
+
+</body>
+</html>
+{%endblock%}

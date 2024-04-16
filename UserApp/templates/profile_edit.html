@@ -1,0 +1,257 @@
+{% extends 'profile_page.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Train Treats</title>
+    <style>
+        #removeImageButton {
+            display: none;
+        }
+
+
+.alert-container {
+	position: fixed;
+	top: -100px; /* Initially off-screen */
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
+	width: 100%;
+	max-width: 400px; /* Adjust width as needed */
+	text-align: center;
+	animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+	0% {
+		top: -100px; /* Off-screen */
+	}
+	100% {
+		top: 100px; /* 100px down from top */
+	}
+}
+
+.alert {
+	position: relative;
+	padding: 15px;
+	margin-bottom: 15px;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+
+.alert-success {
+	color: #155724;
+	background-color: #d4edda;
+	border-color: #c3e6cb;
+}
+
+.alert-warning {
+	color: #856404;
+	background-color: #fff3cd;
+	border-color: #ffeeba;
+}
+.alert-error {
+	color: #db4227;
+	background-color: #fff3cd;
+	border-color: #ffeeba;
+}
+    </style>
+</head>
+<body>
+<div class="col-lg-8">
+            <div class="card z-depth-3">
+            <div class="card-body">
+            <ul class="nav nav-pills nav-pills-primary nav-justified">
+
+            </ul>
+            <div class="tab-content p-3">
+  <div class="tab-pane active show" id="edit">
+                      <h3 class="p-2 " style="border-bottom: 2px solid #6909bd;font-weight:bold;">Edit Profile</h3><br><br>
+
+
+
+
+
+
+            <form method="post" action="{% url 'update_profile' p_id=profile.id %}" enctype="multipart/form-data">
+                {%csrf_token%}
+                <div>
+    <div class="d-flex justify-content-center mb-4">
+        <img id="selectedAvatar" src="{{profile.profile_picture.url}}"
+        class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;" alt="example placeholder" />
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="btn btn-primary btn-rounded">
+            <label class="form-label text-white m-1" for="customFile2">Choose file</label>
+            <input type="file" class="form-control d-none" name="image" id="customFile2" onchange="displaySelectedImage(event, 'selectedAvatar')" />
+
+        </div>&nbsp;&nbsp;&nbsp;
+        <input type="button" class="btn btn-danger" id="removeImageButton"  value="Remove" onclick="removeImage()">
+        <input type="hidden" name="image_removed" id="imageRemoved" value="False">
+
+    </div>
+</div><br>
+    <div class="form-group row mb-2">
+        <label class="col-lg-3 col-form-label form-control-label">Username</label>
+        <div class="col-lg-9">
+            <input class="form-control" type="text" name="new_username" value="{{request.session.Username}}" >
+            <input class="form-control" type="hidden" name="Username" value="{{request.session.Username}}">
+
+        </div>
+        </div>
+        <div class="form-group row mb-2">
+            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+            <div class="col-lg-9">
+                <input class="form-control" type="email" name="new_email" value="{{request.session.Email}}" >
+                <input class="form-control" type="hidden" name="Email" value="{{request.session.Email}}">
+
+
+            </div>
+            </div>
+           
+            <div class="form-group row mb-2">
+            <label class="col-lg-3 col-form-label form-control-label">Age</label>
+            <div class="col-lg-9">
+       <input class="form-control" type="tel" name="age" value="{{ profile.age|default:'' }}" placeholder="Enter Age">
+            </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label class="col-lg-3 col-form-label form-control-label">DOB</label>
+                <div class="col-lg-9">
+<input class="form-control" type="date" name="dob" value="{{ profile.date_of_birth|date:"Y-m-d"|default:'' }}" placeholder="Enter DOB" required>
+                </div>
+                </div>
+            <div class="form-group row mb-2">
+            <label class="col-lg-3 col-form-label form-control-label">Mobile number</label>
+            <div class="col-lg-9">
+<input class="form-control" type="number"  name="mobile" maxlength="10" value="{{ profile.mobile|default:'' }}" placeholder="Enter Mobile Number" required>
+            </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label class="col-lg-3 col-form-label form-control-label">Country</label>
+                <div class="col-lg-9">
+    <input class="form-control" type="text"  name="country" value="{{ profile.country|default:'' }}" placeholder="Country" required>
+                </div>
+                </div>
+
+            <div class="form-group row mb-2">
+            <label class="col-lg-3 col-form-label form-control-label"></label>
+            <div class="col-lg-6">
+            <input class="form-control" type="text" value="{{ profile.state|default:'' }}" name="state"  placeholder="State" required>
+            </div>
+            <div class="col-lg-3">
+            <input class="form-control" type="text" value="{{ profile.city|default:'' }}" name="city" placeholder="City" required>
+            </div>
+            </div>
+           <br><br>
+            <div class="form-group row mb-3">
+            <label class="col-lg-3 col-form-label form-control-label"></label>
+            <div class="col-lg-9">
+           <input type="reset" class="btn btn-secondary px-4 " style="margin-left:20px;padding:7px;font-size:14px; border-radius:10px !important;" value="Cancel">
+           <input type="submit" class="btn btn-primary "  style="margin-left:20px;padding:8px;padding-left:15px;padding-right:15px;font-size:14px;border-radius:10px !important; " value="Save Changes">
+
+
+
+            </div>
+            </div>
+            </form>
+            </div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+ <div class="alert-container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {% if message.tags == 'error' %}
+                    <img src="{% static 'Web/images/error.png' %}" alt="Error Icon" style="margin-right:10px;" width="28px" height="28px"> <!-- Replace path/to/error-image.jpg with the path to your error image -->
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'success' %}
+                    <img src="{% static 'Web/images/green_tick.jpg' %}" alt="Error Icon" width="30px" height="28px">
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'warning' %}
+                    <img src="{% static 'Web/images/warningicon.png' %}" style="margin-top:-7px !important;" alt="Error Icon" width="30px" height="28px">
+                               {{ message }}
+
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+    $(document).ready(function() {
+        // Hide alerts after 5 seconds
+        setTimeout(function() {
+            $('.alert-container').fadeOut('medium');
+        }, 3000);
+    });
+</script>
+            <script>
+                window.onload = function () {
+                    const existingImageUrl = "{{ profile.profile_image.url }}";
+                    if (existingImageUrl) {
+                        document.getElementById('selectedAvatar').src = existingImageUrl;
+                        // Check if the existing image is the default image
+                        if (existingImageUrl = "{% static 'Web/images/usericon11.png' %}") {
+                            // If it's the default image, hide the remove button
+                            document.getElementById('removeImageButton').style.display = 'none';
+                        } else {
+                            // If it's not the default image, show the remove button
+                            document.getElementById('removeImageButton').style.display = 'inline-block';
+                        }
+                    }
+                };
+
+                function removeImage() {
+                    // Reset the value of the file input field
+                    document.getElementById('customFile2').value = '';
+                    // Reset the selected image
+                    document.getElementById('selectedAvatar').src = "{% static 'Web/images/usericon11.png' %}";
+
+                    // Hide the remove button if the default image is set
+                    document.getElementById('removeImageButton').style.display = 'none';
+
+                    // Set the value of the hidden input to indicate image removal
+                    document.getElementById('imageRemoved').value = 'True';
+                }
+
+                function displaySelectedImage(event, elementId) {
+                    const selectedImage = document.getElementById(elementId);
+                    const fileInput = event.target;
+
+                    if (fileInput.files && fileInput.files[0]) {
+                        const reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            selectedImage.src = e.target.result;
+                            // Show the remove button when a new image is selected
+                            document.getElementById('removeImageButton').style.display = 'inline-block';
+                        };
+
+                        reader.readAsDataURL(fileInput.files[0]);
+                    } else {
+                        // If no file is selected, and the existing image is not the default, show the remove button
+                        const existingImageUrl = "{{ profile.profile_image.url }}";
+                        if (existingImageUrl && existingImageUrl != "{% static 'Web/images/usericon11.png' %}") {
+                            document.getElementById('removeImageButton').style.display = 'inline-block';
+                        } else {
+                            // Otherwise, hide the remove button
+                            document.getElementById('removeImageButton').style.display = 'none';
+                        }
+                    }
+                }
+            </script>
+
+
+</body>
+</html>
+{%endblock%}

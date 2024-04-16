@@ -1,0 +1,660 @@
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'Web/images/favicon.png' %}" type="">
+
+  <title>Train Treats</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'Web/css/bootstrap.css' %}" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="{% static 'Web/css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'Web/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'Web/css/responsive.css' %}" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+<style>
+    .userspan{
+	 color: #fff;
+	font-weight: 700;
+	padding: 15px;
+	}
+
+		.userspan:hover{
+	color:#F28123;
+	}
+
+
+
+
+/*
+/* User Cards */
+.user-box {
+    width: 120px;
+    margin: auto;
+    margin-bottom: 20px;
+
+}
+
+.user-box img {
+    width: 120%;
+    border-radius: 50%;
+	padding: 3px;
+	background: #fff;
+	-webkit-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card .tab-content{
+	padding: 1rem 0 0 0;
+}
+
+.z-depth-3 {
+    -webkit-box-shadow: 0 11px 7px 0 rgba(0,0,0,0.19),0 13px 25px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 11px 7px 0 rgba(0,0,0,0.19),0 13px 25px 0 rgba(0,0,0,0.3);
+}
+
+
+	.customarrows:hover{
+	color:#44067b !important;
+	}
+
+
+
+
+  .alert-container {
+            position: fixed;
+            top: -100px; /* Initially off-screen */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 100%;
+            max-width: 400px; /* Adjust width as needed */
+            text-align: center;
+            animation: slideDown 0.5s forwards;
+        }
+
+        @keyframes slideDown {
+            0% {
+                top: -100px; /* Off-screen */
+            }
+            100% {
+                top: 100px; /* 100px down from top */
+            }
+        }
+
+.alert {
+	position: relative;
+	margin-bottom: 15px;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+
+.alert-success {
+	color: black;
+    background-color:white;
+	border: 1px solid green !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-warning {
+	color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-error {
+    color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+
+/* Custom styles for the modal */
+  #deleteAccountModal .modal-dialog {
+    max-width: 500px; /* Set the max-width */
+    margin: 100px auto 0; /* Center the modal horizontally and set distance from top to 100px */
+  }
+
+  #deleteAccountModal .modal-content {
+    height: 270px; /* Set the height */
+    background-color: white;
+    border:1px double #fd7e14;
+    border-radius: 10px; /* Add border radius of 10px */
+    padding: 20px 20px 0; /* Adjusted padding without bottom padding */
+}
+
+        #deleteAccountModal .modal-footer button {
+    margin-top: 60px; /* Adjust this value as needed */
+}
+
+/* Define the color when the button is clicked or active */
+    .customarrows:active {
+        color: black !important;
+    }
+
+  .user_link {
+    display: inline-block;
+    width: 35px; /* Adjust the width as needed to create a circle */
+    height: 35px; /* Adjust the height as needed to create a circle */
+    border-radius: 50%; /* This will create a circle */
+    text-align: center;
+    line-height: 40px; /* Center the icon vertically */
+    border: 2px solid #6909bd;; /* Set border color to violet */
+    background-color: transparent; /* No background color */
+    margin-right: 140px; /* Adjust margin-right as needed */
+}
+
+.user_link i {
+margin-top:7px;
+margin-left:1.5px;
+font-size:17px;
+color:#6909bd;
+}
+
+
+
+</style>
+</head>
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="{% static 'Web/images/hero-bg.jpg' %}" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+             <span style="margin-right:-30px;">
+TrainTreats
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'Home_page' %}">Home</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'menu_page' %}">Menu  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about_page' %}">About</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact_page' %}" >Contact</a>
+              </li>
+            </ul>
+           <div class="user_option">
+{% if request.session.Username %}
+
+            <a href="{% url 'profile_page' %}" class="user_link customicon" style="margin-right:190px;">
+    <i class="fa fa-user" aria-hidden="true"></i>
+</a>
+{% else %}
+
+<a href="{% url 'login_page' %}" class="user_link" style="margin-right:190px;">
+  <i class="fa fa-user-plus"  aria-hidden="true"></i>
+</a>
+{% endif %}
+<a class="cartcustom" href="{% url 'cart_page' %}">
+    <i class="fas fa-shopping-cart"></i>
+</a>
+
+        <a href="{% url 'menu_page' %}" style="text-decoration:none !important;" class="order_online">
+                Search
+              </a>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+    <div style="margin:200px ;">
+    </div>
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-4">
+            <div class="profile-card-4 z-depth-3">
+            <div class="card">
+            <div class="card-body text-center  rounded-top"  style="background: linear-gradient(to bottom, #6909bd, #6909bd);">
+				{% for i in user_profile %}
+
+				<div class="d-flex justify-content-center mb-4 rounded-circle user-box">
+					<img  src="{{i.profile_picture.url}}"
+					class="rounded-circle" style="width: 110px; height: 110px; object-fit: cover;" alt="example placeholder" />
+				</div>
+			{% empty %}
+			<div class="user-box">
+				<img src="{% static 'Web/images/usericon1.png' %}"  style="border:2px solid #6909bd;display:cover;" alt="" name="image" >
+			   </div>
+			   {% endfor %}
+			{% if request.session.Username %}
+            <h5 class="mb-1 text-white">{{request.session.Username}}</h5>
+			{% endif %}
+            </div>
+            <div class="card-body">
+            <ul class="list-group shadow-none">
+
+            <li class="list-group-item ">
+                <a href="{% url 'profile_page' %}" class="px-5 customarrows {% if request.resolver_match.url_name == 'profile_page' %}active{% endif %}" style="color:#6909bd;font-weight:bold;height:15px;padding-bottom:30px;"><i class="fas fa-tachometer-alt" style="margin-right:10px;"></i> Dashboard</span></a>
+                </li>
+         <li class="list-group-item">
+           <a href="{% url 'profile_edit' %}" class="px-5 customarrows {% if request.resolver_match.url_name == 'profile_edit' or request.resolver_match.url_name == 'profile_add-details' %}active{% endif %}" style="color:#6909bd;font-weight:bold;height:15px;padding-bottom:30px;"><i class="fas fa-user-edit" style="margin-right:10px;"></i>Edit Profile</a>
+			</li>
+
+
+
+            
+				<li class="list-group-item">
+
+                <a href="{% url 'profile_orders' %}" class=" px-5 customarrows {% if request.resolver_match.url_name == 'profile_orders' %}active{% endif %}" style="color:#6909bd;font-weight:bold;height:15px;padding-bottom:30px;"><i class="fas fa-shopping-bag" style="margin-right:10px;"></i> Your Orders</a>
+
+			</li>
+
+				<li class="list-group-item">
+    <a href="{% url 'user_logout' %}" class="px-5 customarrows" style="color: #6909bd; font-weight: bold; height: 15px; padding-bottom: 30px;" data-toggle="modal" data-target="#logoutModal">
+        <i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i> Logout
+    </a>
+</li>
+
+<!-- Logout Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                  <h5 class="modal-title" id="logoutModalLabel">
+                    <div style="display: flex; align-items: center;">
+					<i class="fas fa-exclamation-circle" style="margin-right: 6px;margin-top:-2px;"></i>
+                        <div>Are you sure you want to logout ?</div>
+                    </div>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" style="margin-top:20px;" data-dismiss="modal">Cancel</button>
+				&nbsp;
+                <a href="{% url 'user_logout' %}" class="btn btn-primary" style="margin-top:20px;">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+             <form action="{% url 'delete_account' %}" method="post">
+					{% csrf_token %}
+               <li class="list-group-item">
+					<button type="button" class=" px-5 customarrows" style="color:#6909bd;font-weight:bold;height:15px;padding-bottom:30px;border:none;background-color:white;" data-toggle="modal" data-target="#deleteAccountModal">
+						<i class="fas fa-trash" style="margin-right:10px;"></i> Delete Account
+					</button>
+				</li>
+
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" role="dialog" aria-labelledby="deleteAccountModalLabelw" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                  <h5 class="modal-title" id="deleteAccountModalLabel">
+                    <div style="display: flex; align-items: center;font-size:17px !important">
+					<i class="fas fa-exclamation-circle" style="margin-right: 6px;margin-top:-78px;"></i>
+                        <div>Are you sure you want to delete your account ?     <span><p>your all data will be deleted permanently and can't be restored.</p></span></div>
+
+                    </div>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" style="margin-top:20px;" data-dismiss="modal">Cancel</button>
+				&nbsp;
+				<button  type="submit" class="btn btn-primary" style="margin-top:20px;">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>				</form>
+
+
+
+            </ul>
+
+            </div>
+            </div>
+            </div>
+            </div>
+            <br><br><br>
+	{% block content %}
+            <div class="col-lg-8">
+            <div class="card z-depth-3">
+            <div class="card-body">
+            <ul class="nav nav-pills nav-pills-primary nav-justified">
+
+            </ul>
+            <div class="tab-content p-3">
+            <div class="tab-pane active show" id="profile">
+                      <h3 class="p-2 " style="border-bottom: 2px solid #6909bd;font-weight:bold;">My Profile</h3><br><br>
+            <div class="row">
+				{% for i in user_profile %}
+
+            <div class="col-md-6">
+
+                  <h5><b>Username</b></h5>
+            {% if request.session.Username %}
+                <p>
+            {{request.session.Username}}
+            </p>
+                {%endif%}
+
+                <h5><b>Email</b></h5>
+            {% if request.session.Email %}
+                <p>
+            {{request.session.Email}}
+            </p>
+                {%endif%}
+                	<h5><b>mobile</b></h5>
+            <p>
+{{ i.mobile|default:'Not filled' }}
+            </p>
+
+            <h5><b>Age</b></h5>
+            <p>
+{{ i.age|default:'Not filled' }}
+            </p>
+                <h5><b>DOB</b></h5>
+            <p>
+{{ i.date_of_birth|default:'Not filled' }}
+            </p>
+            <h5><b>Country</b></h5>
+            <p>
+{{ i.country|default:'Not filled' }}
+            </p>
+            <h5><b>State</b></h5>
+            <p>
+               {{ i.state|default:'Not filled' }}
+
+                </p>
+                <h5><b>City</b></h5>
+                <p>
+{{ i.city|default:'Not filled' }}
+                    </p>
+            </div>
+
+            
+
+            
+			{% empty %}
+			<div class="col-md-6">
+			 <h5><b>Username</b></h5>
+            {% if request.session.Username %}
+                <p>
+            {{request.session.Username}}
+            </p>
+                {%endif%}
+
+                <h5><b>Email</b></h5>
+            {% if request.session.Email %}
+                <p>
+            {{request.session.Email}}
+            </p>
+                {%endif%}
+                <h5><b>mobile</b></h5>
+            <p>
+{{ i.mobile|default:'Not filled' }}
+            </p>
+
+            <h5><b>Age</b></h5>
+            <p>
+{{ i.age|default:'Not filled' }}
+            </p>
+                <h5><b>DOB</b></h5>
+            <p>
+{{ i.date_of_birth|default:'Not filled' }}
+            </p>
+            <h5><b>Country</b></h5>
+            <p>
+{{ i.country|default:'Not filled' }}
+            </p>
+            <h5><b>State</b></h5>
+            <p>
+               {{ i.state|default:'Not filled' }}
+
+                </p>
+                <h5><b>City</b></h5>
+                <p>
+{{ i.city|default:'Not filled' }}
+                    </p>
+            </div>
+
+           
+            </div>
+			{% endfor %}
+
+
+            </div>
+
+{% if user_profile %}
+<form action="" method="post" class="text-center" id="deleteProfileForm">
+    {% csrf_token %}
+    <div class="cart-buttons" id="cart-buttons">
+        <button type="button" class="btn btn-danger delete-profile-button" data-toggle="modal" data-target="#deleteProfileModal">
+            Delete Profile
+        </button>
+    </div>
+
+
+<div class="modal fade" id="deleteProfileModal" tabindex="-1" role="dialog" aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                  <h5 class="modal-title" id="deleteProfileModalLabel">
+                    <div style="display: flex; align-items: center;">
+					<i class="fas fa-exclamation-circle" style="margin-right:-10px;margin-top:-28px;"></i>
+                        <div>Are you sure you want to remove your details ?</div>
+                    </div>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" style="margin-top:20px;" data-dismiss="modal">Cancel</button>
+				&nbsp;
+                <a href="{% url 'delete_profile' %}" class="btn btn-primary" style="margin-top:20px;">confim</a>
+            </div>
+        </div>
+    </div>
+</div>
+    </form>
+                {% endif %}
+            </div>
+
+
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+		</div>
+
+
+  <div style="margin-bottom:200px;">   </div>
+
+
+	 <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contact Us
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Feane
+            </a>
+            <p>
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Opening Hours
+          </h4>
+          <p>
+            Everyday
+          </p>
+          <p>
+            10.00 Am -10.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Free Html Templates</a><br><br>
+          &copy; <span id="displayYear"></span> Distributed By
+          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+ <div class="alert-container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {% if message.tags == 'error' %}
+                    <img src="{% static 'Web/images/error.png' %}" alt="Error Icon" style="margin-right:10px;" width="28px" height="28px"> <!-- Replace path/to/error-image.jpg with the path to your error image -->
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'success' %}
+                    <img src="{% static 'Web/images/green_tick.jpg' %}" alt="Error Icon" width="30px" height="28px">
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'warning' %}
+                    <img src="{% static 'Web/images/warningicon.png' %}" style="margin-top:-7px !important;" alt="Error Icon" width="30px" height="28px">
+                               {{ message }}
+
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+    $(document).ready(function() {
+        // Hide alerts after 5 seconds
+        setTimeout(function() {
+            $('.alert-container').fadeOut('medium');
+        }, 3000);
+    });
+</script>
+
+  <!-- jQery -->
+  <script src="{% static 'Web/js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="{% static 'Web/js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="{% static 'Web/js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+                {%endblock%}
+
+
+</body>
+</html>

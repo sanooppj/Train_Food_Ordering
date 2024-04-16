@@ -1,0 +1,335 @@
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="{% static 'Web/assets/img/favicon.png' %}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'Web/assets/css/style1.css' %}">
+        <link rel="stylesheet" href="{% static 'Web/assets/css/style.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-gvfPjNS6GlI5xvQoO0o+60Gw2xYsTO0Os7tRStjih6p4wq0z1Px7M2e3GmfJxM0jwFVemQtbd7gjJzY2rEK8LQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <style>
+        .container-login100 {
+            background-image: url({% static 'Web/assets/img/banner.png' %});
+            height:1100px;
+        }
+
+        .alert-container {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            animation: slideDown 0.5s forwards;
+        }
+
+        @keyframes slideDown {
+            0% {
+                top: -100px;
+            }
+            100% {
+                top: 100px;
+            }
+        }
+
+        .alert {
+            position: relative;
+            margin-bottom: 15px;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+
+        }
+
+        .alert-success {
+            color: black;
+            background-color: white;
+            border: 1px solid green !important;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .alert-warning {
+            color: black;
+            background-color: white;
+            border: 1px solid #F28123 !important;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .alert-error {
+            color: black;
+            background-color: white;
+            border: 1px solid #F28123 !important;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .alert-info {
+            color: black;
+            background-color: white;
+            border: 1px solid blue !important;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .transparent {
+            background-color: transparent !important;
+            transition: background-color 0.3s ease;
+        }
+
+        .colored {
+            background-color: #051922 !important;
+        }
+
+
+    </style>
+</head>
+<body>
+
+  <div class="hero_area">
+
+      <!-- header section strats -->
+      <header class="header_section" style="background-color:black;">
+        <div class="container" >
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+             <span style="margin-right:-30px;">
+  TrainTreats
+              </span>
+            </a>
+  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+  
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="{% url 'Home_page' %}">Home </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'menu_page' %}">Menu</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'about_page' %}">About</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link" href="book.html" >Contact</a>
+                </li>
+              </ul>
+             <div class="user_option">
+  
+  <a href="{% url 'login_page' %}" class="user_link" style="margin-right:190px;">
+    <i class="fa fa-user-plus"  aria-hidden="true"></i>
+  </a>
+  <a class="cartcustom" href="{% url 'cart_page' %}">
+      <i class="fas fa-shopping-cart"></i>
+  </a>
+  
+                <a href="{% url 'menu_page' %}" class="order_online">
+                  Search
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+<div class="container-login100">
+    <div class="wrap-login100 p-t-55 p-b-95" style="margin-top: -400px;">
+      <form class="login100-form flex-sb flex-w" method="POST" action="{% url 'register_user' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+        <h3 style="color:white;margin-bottom:20px;">User Registration</h3>
+        <span class="login100-form-title ">
+            <a href="" target="_blank">
+            </a>
+        </span>
+        <div class="wrap-input100 m-b-16">
+            <input type="radio" id="customer_radio" name="user_type" value="customer" required>
+            <label for="customer_radio">Customer</label>
+            <input type="radio" id="vendor_radio" name="user_type" value="vendor" required>
+            <label for="vendor_radio">Vendor</label>
+        </div>
+        <div >
+            <div class="wrap-input100 m-b-16">
+                <input class="input100" type="email" id="username" name="email" placeholder="Enter your Email" required>
+                <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 m-b-16">
+                <input class="input100" type="text" id="name" name="name" placeholder="Enter customer/vendor name" required>
+                <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 m-b-16">
+                <input class="input100" type="password" name="password" id="customer_password" placeholder="Enter password" required>
+                <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 m-b-16">
+                <input class="input100" type="password" name="c_password" id="customer_c_password" placeholder="Confirm Password" required>
+                <span class="focus-input100"></span>
+            </div>
+        </div>
+      
+        <div class="container-login100-form-btn m-t-17">
+            <div class="w-full beforeNone text-center">
+                <input type="submit" class="nv-login-submit login100-form-btn" value="Register">
+            </div>
+        </div>
+        <div class="container-login100-form-btn m-t-17">
+            <p>Already have an account ?</p>
+            <a href="{% url 'login_page' %}" class="font-weight-bold">Login</a>
+        </div>
+    </form>
+    
+    
+    
+    </div>
+</div>
+        <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contact Us
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Feane
+            </a>
+            <p>
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Opening Hours
+          </h4>
+          <p>
+            Everyday
+          </p>
+          <p>
+            10.00 Am -10.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Free Html Templates</a><br><br>
+          &copy; <span id="displayYear"></span> Distributed By
+          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+ <div class="alert-container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {% if message.tags == 'error' %}
+                    <img src="{% static 'Web/images/error.png' %}" alt="Error Icon" style="margin-right:10px;" width="28px" height="28px"> <!-- Replace path/to/error-image.jpg with the path to your error image -->
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'success' %}
+                    <img src="{% static 'Web/images/green_tick.jpg' %}" alt="Error Icon" width="30px" height="28px">
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'warning' %}
+                    <img src="{% static 'Web/images/warningicon.png' %}" style="margin-top:-7px !important;" alt="Error Icon" width="30px" height="28px">
+                               {{ message }}
+
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+    $(document).ready(function() {
+        // Hide alerts after 5 seconds
+        setTimeout(function() {
+            $('.alert-container').fadeOut('medium');
+        }, 5000);
+    });
+</script>
+
+<script>
+  function toggleVendorFields() {
+      var customerRadio = document.getElementById("customer_radio");
+      var vendorRadio = document.getElementById("vendor_radio");
+      var customerFields = document.getElementById("customer_fields");
+      var vendorFields = document.getElementById("vendor_fields");
+
+      if (customerRadio.checked) {
+          customerFields.style.display = "block";
+          vendorFields.style.display = "none";
+      } else if (vendorRadio.checked) {
+          customerFields.style.display = "none";
+          vendorFields.style.display = "block";
+      } else {
+          customerFields.style.display = "none";
+          vendorFields.style.display = "none";
+      }
+  }
+</script>
+
+</body>
+</html>

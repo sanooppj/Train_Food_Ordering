@@ -1,0 +1,507 @@
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'Web/images/favicon.png' %}" type="">
+
+  <title> Feane </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'Web/css/bootstrap.css' %}" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="{% static 'Web/css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'Web/css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'Web/css/main.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+
+   <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Jost:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+  <style>
+
+
+ .btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 45px;
+}
+
+.btn-box a {
+  display: inline-block;
+  padding: 10px 55px;
+  background-color: #6909bd !important;
+  color: #ffffff !important;
+  border-radius: 45px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+}
+
+.btn-box a:hover {
+  background-color: #3b026c !important;
+}
+
+
+
+  .alert-container {
+            position: fixed;
+            top: -100px; /* Initially off-screen */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 100%;
+            max-width: 400px; /* Adjust width as needed */
+            text-align: center;
+            animation: slideDown 0.5s forwards;
+        }
+
+        @keyframes slideDown {
+            0% {
+                top: -100px; /* Off-screen */
+            }
+            100% {
+                top: 100px; /* 100px down from top */
+            }
+        }
+
+.alert {
+	position: relative;
+	margin-bottom: 15px;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+
+.alert-success {
+	color: black;
+    background-color:white;
+	border: 1px solid green !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-warning {
+	color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-error {
+    color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+
+  </style>
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="{% static 'Web/images/hero-bg.jpg' %}" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span style="margin-right:-30px;">
+TrainTreats
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'Home_page' %}">Home</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'menu_page' %}">Menu  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about_page' %}">About</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="book.html" >Contact</a>
+              </li>
+            </ul>
+           <div class="user_option">
+{% if request.session.Username %}
+
+            <a href="{% url 'profile_page' %}" class="user_link customicon" style="margin-right:190px;">
+    <i class="fa fa-user" aria-hidden="true"></i>
+</a>
+{% else %}
+
+<a href="{% url 'login_page' %}" class="user_link" style="margin-right:190px;">
+  <i class="fa fa-user-plus"  aria-hidden="true"></i>
+</a>
+{% endif %}
+<a class="cartcustom" href="{% url 'cart_page' %}">
+    <i class="fas fa-shopping-cart"></i>
+</a>
+
+        <a href="{% url 'menu_page' %}" style="text-decoration:none !important;" class="order_online">
+               Search
+              </a>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div><br>
+
+
+<div class="cart-section mt-150 mb-150" style="margin-top:100px;margin-bottom:200px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-12">
+
+                    <div class="cart-table-wrap">
+                        <form  id="update-cart-form">
+                            {% csrf_token %}
+
+                        <table class="cart-table">
+                            <thead class="cart-table-head">
+                                <tr class="table-head-row">
+                                    <th class="product-remove"></th>
+                                    <th class="product-image">Food Image</th>
+                                    <th class="product-name" style="max-width:400px;">Name</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-total">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-items-body">
+                                {% for item in data %}
+                                <tr class="table-body-row">
+                                    <td class="product-remove">
+                                        <a href=""  data-cart-id="{{ item.id }}"><i class="far fa-window-close"></i></a>
+                                    </td>
+                                    <td class="product-image"><img src="{{ item.food.image.url }}" alt="{{ item.food.name }}" style="max-width:100px;max-height:70px;"></td>
+                                    <td class="product-name">{{ item.food.single_name }}</td>
+                                    <td class="product-price">₹ {{ item.food.price }}/-</td>
+                                    <td class="product-quantity">
+                                      <input type="hidden" name="cart_item" value="{{ item.id }}">
+                                      <input type="number" min="1" value="{{ item.quantity }}" name="new_quantity"  class="quantity-input" >
+                                  </td>
+                                  <td class="product-total">
+                                      <input type="text" style="border: none; outline: none;background-color: white;width: 150px;margin-left: 30px; font-size: 16px;" class="form-control total-input" value="₹ {{ item.tprice }}/-" readonly>
+                                  </td>
+                                </tr>
+                                {% endfor %}
+                                {% if total_price > 0 %}
+                                <tr class="total-data">
+                                    <td colspan="5" ><strong>Total: </strong></td>
+                                    <td style="width:200px;"><b>₹ {{ total_price }}/-</b></td>
+                                </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+
+
+
+                        <div class="cart-buttons" id="cart-buttons" style="display: none;">
+        <button type="submit" id="save-changes-btn" style="border: none; outline: none; background-color: white;" id="save-changes-btn">
+          <div class="btn-box">
+        <a  >
+          Save Changes
+        </a>
+      </div>
+        </button>
+    </div>
+
+                    </form>
+
+                    </div>
+
+                </div>
+                {% if data %}
+  <div class="cart-buttons text-center" id="cart-butt">
+        <button type="submit" style="border: none; outline: none; background-color: white;">
+          <div class="btn-box">
+        <a  href="{% url 'Checkout_page' %}">
+          Check Out
+        </a>
+      </div>
+        </button>
+    </div>
+{% else %}
+    <div class="cart-buttons text-center" id="cart-button">
+        <button type="button" style="border: none; outline: none; background-color: white;">
+          <div class="btn-box">
+        <a  href="{% url 'menu_page' %}">
+          Continue Booking
+        </a>
+      </div>
+        </button>
+    </div>
+{% endif %}
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+ <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contact Us
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Feane
+            </a>
+            <p>
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Opening Hours
+          </h4>
+          <p>
+            Everyday
+          </p>
+          <p>
+            10.00 Am -10.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Free Html Templates</a><br><br>
+          &copy; <span id="displayYear"></span> Distributed By
+          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- footer section -->
+ <div class="alert-container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {% if message.tags == 'error' %}
+                    <img src="{% static 'Web/images/error.png' %}" alt="Error Icon" style="margin-right:10px;" width="30px" height="40px"> <!-- Replace path/to/error-image.jpg with the path to your error image -->
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'success' %}
+                    <img src="{% static 'Web/images/green_tick.jpg' %}" alt="Error Icon" width="30px" height="28px">
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'warning' %}
+                    <img src="{% static 'Web/images/warningicon.png' %}" style="margin-top:-7px !important;" alt="Error Icon" width="30px" height="28px">
+                               {{ message }}
+
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<script>
+    $(document).ready(function() {
+        // Hide alerts after 5 seconds
+        setTimeout(function() {
+            $('.alert-container').fadeOut('medium');
+        }, 3000);
+    });
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        // Function to update total price for each item
+        function updateItemTotal(itemRow) {
+            var quantity = parseInt(itemRow.find('.quantity-input').val());
+            var price = parseFloat(itemRow.find('.product-price').text().replace('₹', '').replace('/-', '').trim());
+            var total = quantity * price;
+            itemRow.find('.total-input').val('₹ ' + total.toFixed(2) + '/-');
+            showSaveChangesButton();
+        }
+    
+        // Update item total when quantity changes
+        $('.quantity-input').on('input', function() {
+            var itemRow = $(this).closest('.table-body-row');
+            updateItemTotal(itemRow);
+    
+            // Update total price
+            var total = 0;
+            $('.table-body-row').each(function() {
+                var itemTotal = parseFloat($(this).find('.total-input').val().replace('₹', '').replace('/-', '').trim());
+                total += itemTotal;
+            });
+            $('.total-data b').text('₹ ' + total.toFixed(2) + '/-');
+        });
+    
+        // Function to show Save Changes button
+        function showSaveChangesButton() {
+            $('#cart-buttons').show();
+        }
+    
+        // Handle click event on Save Changes button
+        $('#save-changes-btn').on('click', function(e) {
+            e.preventDefault();
+            var formData = $('#update-cart-form').serialize(); // Serialize form data
+            $.ajax({
+                url: '{% url "Update_cart" %}', // Update URL with your endpoint
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    // Handle success response (optional)
+                    window.location.reload(); // Reload the page after updating the cart
+                },
+                error: function(xhr, status, error) {
+                    // Handle error (optional)
+                }
+            });
+        });
+    });
+    </script>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function() {
+    $('.product-remove a').click(function(e) {
+        e.preventDefault();
+        var itemId = $(this).data('cart-id');
+        $.ajax({
+            url: "{% url 'delete_cart' %}",
+            method: "POST",
+            data: {
+                'item_id': itemId,
+                'csrfmiddlewaretoken': "{{ csrf_token }}"
+            },
+            success: function(response) {
+                window.location.reload();
+                $(this).closest('.table-body-row').remove();
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+            }
+        });
+    });
+});
+</script>
+
+
+
+  <script src="{% static 'Web/js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="{% static 'Web/js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="{% static 'Web/js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>

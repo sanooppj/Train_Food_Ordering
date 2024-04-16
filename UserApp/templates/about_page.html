@@ -1,0 +1,481 @@
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'Web/images/favicon.png' %}" type="">
+
+  <title> Train Treats</title>
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="{% static 'Web/css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'Web/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'Web/css/responsive.css' %}" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+
+      <link href="{% static 'Web/css/bootstrap-select.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'Web/css/bootstrap.css' %}" rel="stylesheet">
+
+
+  <style>
+    .section-title h3 {
+  font-size: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title h3:after {
+  position: absolute;
+  content: '';
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 50px;
+  height: 2px;
+  background-color: #F28123;
+  margin: 0 auto;
+}
+
+.section-title p {
+  font-size: 15px;
+  width: 530px;
+  margin: 0 auto;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.8;
+}
+.logo-carousel-section {
+  background-color: #f5f5f5;
+  padding: 50px 0;
+}
+.single-logo-item img {
+  max-width: 180px;
+  margin: 0 auto;
+}
+.logo-carousel-inner {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Align items horizontally */
+  align-items: center; /* Align items vertically */
+  flex-wrap: nowrap; /* Prevent wrapping to ensure all items stay in one line */
+}
+
+.single-logo-item {
+  margin-right: 10px; /* Adjust margin between items */
+}
+
+
+.section-title {
+  margin-bottom: 80px;
+}
+.carousel-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 20px; /* Adjust as needed */
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+.logo-carousel-inner {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.single-logo-item {
+  display: inline-block;
+}
+
+
+
+
+
+
+       .alert-container {
+            position: fixed;
+            top: -100px; /* Initially off-screen */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 100%;
+            max-width: 400px; /* Adjust width as needed */
+            text-align: center;
+            animation: slideDown 0.5s forwards;
+        }
+
+        @keyframes slideDown {
+            0% {
+                top: -100px; /* Off-screen */
+            }
+            100% {
+                top: 100px; /* 100px down from top */
+            }
+        }
+
+.alert {
+	position: relative;
+	margin-bottom: 15px;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+
+.alert-success {
+	color: black;
+    background-color:white;
+	border: 1px solid green !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-warning {
+	color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-error {
+    color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+
+
+
+      feature-bg {
+  position: relative;
+  margin: 150px 0;
+}
+
+.feature-bg:after {
+background-image: url({% static 'Web/images/logho.png' %});
+  position: absolute;
+  right: 29px;
+  top: 290px;
+  width: 40%;
+  height: 75%;
+  content: "";
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 5px;
+  -webkit-box-shadow: 0 0 20px #cacaca;
+  box-shadow: 0 0 20px #cacaca;
+  border-bottom-left-radius: 5px;
+}
+
+       .list-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 220px;
+            height: 50px;
+            border: 2px dotted #6909bd;
+            border-radius: 50%;
+            color: #6909bd;
+        }
+  </style>
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="{% static 'Web/images/hero-bg.jpg' %}" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+             <span style="margin-right:-30px;">
+TrainTreats
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'Home_page' %}" style="margin-left:50px;">Home </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'menu_page' %}">Menu</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'about_page' %}">About  <span class="sr-only">(current)</span></a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact_page' %}" >Contact</a>
+              </li>
+            </ul>
+           <div class="user_option">
+{% if request.session.Username %}
+
+            <a href="{% url 'profile_page' %}" class="user_link customicon" style="margin-right:120px;">
+    <i class="fa fa-user" aria-hidden="true"></i>
+</a>
+{% else %}
+
+<a href="{% url 'login_page' %}" class="user_link" style="margin-right:120px;">
+  <i class="fa fa-user-plus"  aria-hidden="true"></i>
+</a>
+{% endif %}
+<a class="cartcustom" href="{% url 'cart_page' %}">
+    <i class="fas fa-shopping-cart"></i>
+</a>
+
+        <a href="{% url 'menu_page' %}" style="text-decoration:none !important;" class="order_online">
+              Search
+              </a>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div><br><br><br>
+
+
+  	<!-- featured section -->
+<div class="feature-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7">
+<div class="featured-text text-center">
+<div class="section-title text-center" style="display: flex; justify-content: center; align-items: center;margin-bottom:-20px;">
+    <h3 style="font-weight: bold; margin: 0;">
+Why Train Treats </h3>
+</div><br><br><br>
+<div class="row">
+        <div class="col-lg-6 col-md-6 mb-4 mb-md-5">
+            <div class="list-box d-flex">
+                <div class="list-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="content">
+                    <h3>Wide Range of Cuisines</h3>
+                    <p>Choose from a diverse menu featuring dishes from various cuisines, all available at your fingertips. Enjoy regional specialties and international favorites as you travel.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-5 mb-md-5">
+            <div class="list-box d-flex">
+                <div class="list-icon">
+                    <i class="fas fa-train"></i>
+                </div>
+                <div class="content">
+                    <h3>Order at Your Convenience</h3>
+                    <p>Place your food orders seamlessly while you travel. Our platform ensures that your meal is ready for you when your train arrives at the station, saving you time and hassle.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-5 mb-md-5">
+            <div class="list-box d-flex">
+                <div class="list-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="content">
+                    <h3>Easy Mobile Ordering</h3>
+                    <p>Use our user-friendly app to quickly place orders from your mobile device. Track your order in real-time and get updates until your food is delivered to your seat.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="list-box d-flex">
+                <div class="list-icon">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <div class="content">
+                    <h3>Vendor Partnership</h3>
+                    <p>Our platform collaborates with a variety of verified vendors to offer you fresh and delicious meals. Support local businesses and enjoy authentic flavors as you travel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end featured section -->
+
+
+  <section class="about_section layout_padding" style="margin-top:100px;margin-bottom:200px;">
+    <div class="container  ">
+
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'Web/images/about-img.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                We Are Train Treats
+              </h2>
+            </div>
+            <p>
+             Welcome to Train Treats, your one-stop destination for delicious on-the-go dining experiences.
+                Whether you're embarking on a journey or simply craving a flavorful feast, our platform offers
+                a seamless food ordering and booking system tailored for train travelers. Indulge in a diverse
+                array of culinary delights curated to elevate your travel experience. With Train Treats, satisfaction
+                is just a click away.
+                Book your meal today and savor the convenience of quality dining while on the move..
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+
+
+
+ <!-- client section -->
+
+
+  <!-- end client section -->
+
+
+ <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contact Us
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Feane
+            </a>
+            <p>
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Opening Hours
+          </h4>
+          <p>
+            Everyday
+          </p>
+          <p>
+            10.00 Am -10.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Free Html Templates</a><br><br>
+          &copy; <span id="displayYear"></span> Distributed By
+          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+  <!-- jQery -->
+  <script src="{% static 'Web/js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="{% static 'Web/js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="{% static 'Web/js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>

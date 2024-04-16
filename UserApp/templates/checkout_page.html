@@ -1,0 +1,429 @@
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'Web/images/favicon.png' %}" type="">
+
+  <title> Train Treats
+  </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'Web/css/bootstrap.css' %}" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="{% static 'Web/css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'Web/css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'Web/css/main.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+
+   <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Jost:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+  <style>
+
+
+ .btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 45px;
+}
+
+.btn-box a {
+  display: inline-block;
+  padding: 10px 55px;
+  background-color: #6909bd !important;
+  color: #ffffff !important;
+  border-radius: 45px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+}
+
+.btn-box a:hover {
+  background-color: #3b026c !important;
+}
+
+      .alert-container {
+            position: fixed;
+            top: -100px; /* Initially off-screen */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 100%;
+            max-width: 400px; /* Adjust width as needed */
+            text-align: center;
+            animation: slideDown 0.5s forwards;
+        }
+
+        @keyframes slideDown {
+            0% {
+                top: -100px; /* Off-screen */
+            }
+            100% {
+                top: 100px; /* 100px down from top */
+            }
+        }
+
+.alert {
+	position: relative;
+	margin-bottom: 15px;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+
+.alert-success {
+	color: black;
+    background-color:white;
+	border: 1px solid green !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-warning {
+	color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-error {
+    color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+  </style>
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="{% static 'Web/images/hero-bg.jpg' %}" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span style="margin-right:-30px;">
+TrainTreats
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto ">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Home_page' %}">Home </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'menu_page' %}">Menu  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="book.html">Book Table</a>
+             <li class="nav-item">
+                <a class="nav-link" href="book.html" >Contact</a>
+              </li>
+            </ul>
+             <div class="user_option">
+<!--                 <a href="{% url 'login_page' %}" class="user_link" style="margin-right:100px;">-->
+<!--    <i class="fa fa-user-plus"  aria-hidden="true"></i>-->
+<!--</a>-->
+            <a href="{% url 'profile_page' %}" class="user_link customicon" style="margin-right:70px;">
+    <i class="fa fa-user" aria-hidden="true"></i>
+</a>
+<a class="cartcustom" href="{% url 'cart_page' %}">
+    <i class="fas fa-shopping-cart"></i>
+</a>
+              <a href="" class="order_online">
+                Order Online
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div><br>
+
+
+
+
+    <section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h3 style="font-weight:bold;">
+Booking Details        </h3>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="{% url 'save_booking_details' %}" id="bookingForm" method="post">
+              {% csrf_token %}
+              <div>
+                <input type="hidden" class="form-control" name="username" value="{{request.session.Username}}" />
+                <input type="text" class="form-control" name="name" value="{{profile.name}}" placeholder="Your Name" required/>
+
+              </div> <div>
+                <input type="text" class="form-control" name="age" value="{{profile.age}}" placeholder=" Your Age" required/>
+              </div>
+              <div>
+                <input class="form-control" type="number" name="mobile" maxlength="10" value="{{profile.mobile}}" placeholder="Phone Number" required>
+              </div>
+              <div>
+                <input type="email" class="form-control" name="email" value="{{profile.email}}" placeholder="Your Email" required/>
+              </div>
+              
+              <div>
+                <input type="date" class="form-control" name="date" id="currentDate" required>
+              </div>
+                <div>
+                <input type="text" class="form-control" name="train_number" placeholder="Your Train Number" required>
+              </div>
+
+    <div class="row">  <!-- Row to contain two half-width inputs -->
+        <div class="col-half" style="margin-left:14px;width:264px;">
+            <input type="text" class="form-control" name="compartment" placeholder="Compartment Number" required>
+        </div>
+        <div class="col-half" style="margin-left:13px;width:264px;">
+            <input type="text" class="form-control" name="seat" placeholder="Seat Number" required>
+        </div>
+    </div>
+                 <div>
+<input type="text" class="form-control" name="deliver_station" placeholder="Food Delivering Station Name" required />
+              </div>
+
+            </form>
+          </div>
+        </div>
+                <div class="col-lg-6">
+                       <div class="heading_container" style="margin-top:-60px;">
+        <h3 style="font-weight:bold;">
+Order Details        </h3>
+      </div>
+          <div class="order-details-wrap">
+
+            <table class="order-details" style="width:98%">
+              <thead>
+
+                <tr>
+                  <th>Your order Details</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody class="order-details-body">
+                {% for i in data %}
+                <tr>
+
+                </tr>
+                <tr>
+                  <td>{{i.food.single_name}}</td>
+                  <td>x{{i.quantity}}</td>
+                  <td  style="text-align: right;">₹ {{i.tprice}}/-</td>
+                </tr>
+                {% endfor %}
+
+              </tbody>
+              <tbody class="checkout-details">
+                <tr>
+                  <td colspan="2" >Subtotal</td>
+                    <td  style="text-align: right;font-weight:bold;">₹ {{total_price}}/-</td>
+                </tr>
+               
+                <tr>
+                <tr>
+                  <td colspan="2" >Shipping</td>
+                  <td  style="text-align: right;">₹ 70/-</td>
+                </tr>
+                  <td colspan="2" >Total</td>
+                
+                    <td id="total-amount" style="text-align: right;font-weight:bold;">₹ {{total_price|add:70}}/-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+           <div class="cart-buttons text-center" id="cart-button">
+        <button type="submit" id="placeOrderButton" style="border: none; outline: none; background-color: white;">
+          <div class="btn-box">
+        <a  >
+          Place Order
+        </a>
+      </div>
+        </button>
+    </div>
+
+    </div>
+
+  </section>
+
+
+
+ <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contact Us
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Feane
+            </a>
+            <p>
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Opening Hours
+          </h4>
+          <p>
+            Everyday
+          </p>
+          <p>
+            10.00 Am -10.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Free Html Templates</a><br><br>
+          &copy; <span id="displayYear"></span> Distributed By
+          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+  <!-- jQery -->
+  <script>
+    // Get the current date
+    var currentDate = new Date();
+
+    // Format the date as YYYY-MM-DD (required by the date input field)
+    var formattedDate = currentDate.getFullYear() + '-' + ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' + ('0' + currentDate.getDate()).slice(-2);
+
+    // Set the value of the date input field
+    document.getElementById('currentDate').value = formattedDate;
+</script>
+<script>
+  // Get the form and button elements
+  var form = document.getElementById('bookingForm');
+  var placeOrderButton = document.getElementById('placeOrderButton');
+
+  // Add event listener to the button
+  placeOrderButton.addEventListener('click', function() {
+      // Submit the form
+      form.submit();
+  });
+</script>
+
+  <script src="{% static 'Web/js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="{% static 'Web/js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="{% static 'Web/js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>

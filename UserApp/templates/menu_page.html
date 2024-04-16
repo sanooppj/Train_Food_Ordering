@@ -1,0 +1,525 @@
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'Web/images/favicon.png' %}" type="">
+
+  <title> Train Treats</title>
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="{% static 'Web/css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'Web/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'Web/css/responsive.css' %}" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+
+      <link href="{% static 'Web/css/bootstrap-select.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'Web/css/bootstrap.css' %}" rel="stylesheet">
+
+  <style>
+    .section-title h3 {
+  font-size: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title h3:after {
+  position: absolute;
+  content: '';
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 50px;
+  height: 2px;
+  background-color: #F28123;
+  margin: 0 auto;
+}
+
+.section-title p {
+  font-size: 15px;
+  width: 530px;
+  margin: 0 auto;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.8;
+}
+.logo-carousel-section {
+  background-color: #f5f5f5;
+  padding: 50px 0;
+}
+.single-logo-item img {
+  max-width: 180px;
+  margin: 0 auto;
+}
+.logo-carousel-inner {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Align items horizontally */
+  align-items: center; /* Align items vertically */
+  flex-wrap: nowrap; /* Prevent wrapping to ensure all items stay in one line */
+}
+
+.single-logo-item {
+  margin-right: 10px; /* Adjust margin between items */
+}
+
+
+.section-title {
+  margin-bottom: 80px;
+}
+.carousel-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 20px; /* Adjust as needed */
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+.logo-carousel-inner {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.single-logo-item {
+  display: inline-block;
+}
+
+
+
+.custom-btn{
+color:white;
+background-color:#6909bd;
+border-radius:10px;
+border: 1px solid #6909bd !important;
+}
+.custom-btn:hover{
+      color:white;
+background-color:#470581;
+border-radius:10px;
+border: 1px solid #470581; !important;
+      }
+
+
+    .bootstrap-select .dropdown-toggle:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+     .custom-drop
+{
+    border: 2px solid rgb(148, 10, 198) !important;
+    border-radius:30px !important;
+
+}
+
+
+        .alert-container {
+            position: fixed;
+            top: -100px; /* Initially off-screen */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 100%;
+            max-width: 400px; /* Adjust width as needed */
+            text-align: center;
+            animation: slideDown 0.5s forwards;
+        }
+
+        @keyframes slideDown {
+            0% {
+                top: -100px; /* Off-screen */
+            }
+            100% {
+                top: 100px; /* 100px down from top */
+            }
+        }
+
+.alert {
+	position: relative;
+	margin-bottom: 15px;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+
+.alert-success {
+	color: black;
+    background-color:white;
+	border: 1px solid green !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-warning {
+	color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-error {
+    color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+
+  </style>
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="{% static 'Web/images/hero-bg.jpg' %}" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+             <span style="margin-right:-30px;">
+TrainTreats
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'Home_page' %}" style="margin-left:50px;">Home </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'menu_page' %}">Menu <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about_page' %}">About</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact_page' %}" >Contact</a>
+              </li>
+            </ul>
+           <div class="user_option">
+{% if request.session.Username %}
+
+            <a href="{% url 'profile_page' %}" class="user_link customicon" style="margin-right:120px;">
+    <i class="fa fa-user" aria-hidden="true"></i>
+</a>
+{% else %}
+
+<a href="{% url 'login_page' %}" class="user_link" style="margin-right:120px;">
+  <i class="fa fa-user-plus"  aria-hidden="true"></i>
+</a>
+{% endif %}
+<a class="cartcustom" href="{% url 'cart_page' %}">
+    <i class="fas fa-shopping-cart"></i>
+</a>
+
+        <a href="{% url 'menu_page' %}" style="text-decoration:none !important;" class="order_online">
+                Search
+              </a>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+              <!-- Main Box with Search Bars and Button -->
+<div class="container main-box p-5 pt-3 pb-5" style="margin-top:100px;margin-bottom:100px;">
+<div class="section-title text-center" style="display: flex; justify-content: center; align-items: center;;">
+    <h3 style="font-weight: bold; margin: 0;">
+Find your choice Based on Location and Food    </h3>
+</div>
+<form method="post" action="{% url 'search_foods' %}">
+        {% csrf_token %}
+        <div class="row  mb-3 justify-content-center">
+            <!-- Job Search Bar -->
+            <div class="col-md-4 mb-2">
+                <select class="selectpicker border rounded custom-drop" name="selected_location" id="selected-locations" data-style="btn-black py-2" data-width="100%" data-live-search="true" title="Select location">
+                   {% for i in location_names %}
+                    <option>{{i.region_name}}</option>
+                    {% endfor %}
+
+                </select>
+            </div>
+            <!-- Location Search Bar -->
+            <div class="col-md-4 mb-2">
+                <select class="selectpicker border rounded custom-drop" name="selected_food" id="food-names" data-style="btn-black py-2" data-width="100%" data-live-search="true" title="Select food">
+                         {% for i in food %}
+                    <option>{{i.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <!-- Search Button -->
+           <div class="col-md-4 mb-2">
+                <button type="submit" class="btn btn-primary py-md-2 px-5 rounded-pill custom-btn" style="width: 100%;">search here</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+  <!-- logo carousel -->
+<div class="section-title text-center" style="display: flex; justify-content: center; align-items: center;margin-bottom:-20px;">
+    <h3 style="font-weight: bold; margin: 0;">
+Our Menu    </h3>
+</div>
+   <a class="navbar-brand text-center">
+            <span style="margin-right:-30px;">
+Our Menu
+            </span>
+          </a>
+<div class="logo-carousel-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="carousel-container">
+          <div class="logo-carousel-inner slick-slider">
+            {% for i in data %}
+            <div class="single-logo-item">
+        <a href="{% url 'view_food_restaurant' i.name %}">
+                <img src="{{i.image.url}}" class="rounded-circle" style="border:3px solid rgb(159, 158, 158); object-fit:cover; width: 150px; height: 150px;" alt="example placeholder">
+              </a>
+                <h6 class="text-center m-2 namelogo" style="color:#6909bd;">{{i.name}}</h6>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br>
+
+
+  <section class="food_section layout_padding-bottom">
+    <div class="container">
+     <div class="section-title text-center" style="display: flex; justify-content: center; align-items: center;margin-bottom:5px;margin-top:25px;">
+    <h3 style="font-weight: bold;">
+Our Vendors    </h3>
+</div>
+      <div class="filters-content">
+        <div class="row grid ">
+          {% for vendor in vendors %}
+          <div class="col-sm-6 col-lg-4 all pizza">
+            <div class="box">
+              <div>
+                  <a href="{% url 'vendor_single_page' vendor_id=vendor.id %}">
+                <div class="img-box background-image" style="background-image: url('{{ vendor.logo.url }}')">
+</div>
+                  </a>
+                <div class="detail-box">
+                  <h4>{{ vendor.name }}</h4>
+                     <div class="options">
+<div class="rating ">
+  <div class="circle">
+    <span class="star">&#9733;</span> <!-- Filled star -->
+  </div>
+  <span class="rating-number" style="font-weight:bold;">{{vendor.average_rating}}</span> <!-- Rating number -->
+  <span style="font-size: 16px; font-weight: bold;">&nbsp;&nbsp;. &nbsp;
+
+  <i class="fas fa-map-marker-alt" style="color: #6909bd;font-size:18px;">&nbsp;</i> {{vendor.location}}
+ </span> <!-- Time indication -->
+</div>
+
+
+
+                  </div>
+
+                  <p>{{ vendor.description|truncatechars:40 }}</p>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          </div>
+
+        </div>
+      </div>
+
+  </section>
+
+  <!-- end food section -->
+
+
+
+ <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contact Us
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Feane
+            </a>
+            <p>
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Opening Hours
+          </h4>
+          <p>
+            Everyday
+          </p>
+          <p>
+            10.00 Am -10.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Free Html Templates</a><br><br>
+          &copy; <span id="displayYear"></span> Distributed By
+          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+ <div class="alert-container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {% if message.tags == 'error' %}
+                    <img src="{% static 'Web/images/error.png' %}" alt="Error Icon" style="margin-right:10px;" width="30px" height="40px"> <!-- Replace path/to/error-image.jpg with the path to your error image -->
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'success' %}
+                    <img src="{% static 'Web/images/green_tick.jpg' %}" alt="Error Icon" width="30px" height="28px">
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'warning' %}
+                    <img src="{% static 'Web/images/warningicon.png' %}" style="margin-top:-7px !important;" alt="Error Icon" width="30px" height="28px">
+                               {{ message }}
+
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+	<script>
+    $(document).ready(function() {
+        // Hide alerts after 5 seconds
+        setTimeout(function() {
+            $('.alert-container').fadeOut('medium');
+        }, 5000);
+    });
+</script>
+
+   <!-- from another code -->
+    <script src="{% static 'Web/js/jquery.min.js' %}"></script>
+    <script src="{% static 'Web/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <script src="{% static 'Web/js/bootstrap-select.min.js' %}"></script>
+
+
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="{% static 'Web/js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <!-- custom js -->
+  <script src="{% static 'Web/js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>

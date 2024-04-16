@@ -1,0 +1,566 @@
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'Web/images/favicon.png' %}" type="">
+
+  <title> Train Treats </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'Web/css/bootstrap.css' %}" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="{% static 'Web/css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'Web/css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'Web/css/main.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+
+   <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Jost:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+  <style>
+
+
+ .btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 45px;
+}
+
+.btn-box a {
+  display: inline-block;
+  padding: 10px 55px;
+  background-color: #6909bd !important;
+  color: #ffffff !important;
+  border-radius: 45px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+}
+
+.btn-box a:hover {
+  background-color: #3b026c !important;
+}
+
+
+
+.confirmation_part .confirmation_tittle {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.confirmation_part .confirmation_tittle span {
+  color: orange;
+  font-size:30px;
+}
+
+.confirmation_part .single_confirmation_details {
+  background-color: #f1f3f3;
+  padding: 35px 40px;
+}
+
+@media (max-width: 991px) {
+  .confirmation_part .single_confirmation_details {
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .confirmation_part .single_confirmation_details {
+    margin-bottom: 30px;
+  }
+}
+
+.confirmation_part .single_confirmation_details h4 {
+  font-size: 18px;
+  font-weight:bolder;
+  color: #222222;
+  text-transform: capitalize;
+  margin-bottom: 16px;
+}
+
+.confirmation_part .single_confirmation_details ul li {
+  position: relative;
+  text-transform: capitalize;
+  padding-left: 55%;
+  margin-bottom: 3px;
+}
+
+.confirmation_part .single_confirmation_details ul li p {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 21px;
+  color: #777777;
+}
+
+.confirmation_part .single_confirmation_details ul li span {
+  color: #222222;
+}
+
+.confirmation_part .order_details_iner {
+  margin-top: 50px;
+  background-color:  #f1f3f3;
+  padding: 30px 30px 15px;
+  text-transform: capitalize;
+}
+
+.confirmation_part .order_details_iner h3 {
+  font-size: 18px;
+}
+
+.confirmation_part .order_details_iner .table thead th {
+  color: #222222;
+  font-size: 16px;
+}
+
+.confirmation_part .order_details_iner span {
+  color: #777777;
+}
+
+.confirmation_part .order_details_iner thead {
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+
+.confirmation_part .order_details_iner tfoot {
+  border-top: 1px solid #dddddd;
+}
+
+.confirmation_part .order_details_iner th {
+  font-weight: 500;
+}
+
+.razorpay-payment-button, .cash-btn {
+        text-transform: lowercase !important; /* Change text to lowercase */
+        color: white !important;
+        background-color:#6909bd;
+
+        display: inline-block;
+    padding: 10px 55px;
+    border-radius: 45px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: none;
+    margin-top:50px !important;
+
+    }
+
+    /* Hover effect */
+    .razorpay-payment-button:hover {
+        color: white;
+                background-color:#470581;
+
+    }
+
+
+
+/* Custom styles for the modal */
+  #codConfirmationModal .modal-dialog {
+    max-width: 480px; /* Set the max-width */
+    margin: 100px auto 0; /* Center the modal horizontally and set distance from top to 100px */
+  }
+
+    #codConfirmationModal .modal-content {
+    height: 220px; /* Set the height */
+    background-color: white;
+    border:1px double #fd7e14;
+    border-radius: 10px; /* Add border radius of 10px */
+    padding: 20px 20px 0; /* Adjusted padding without bottom padding */
+}
+
+
+
+  </style>
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="{% static 'Web/images/hero-bg.jpg' %}" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span style="margin-right:-30px;">
+TrainTreats
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto ">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Home_page' %}">Home </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'menu_page' %}">Menu  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="book.html">Book Table</a>
+             <li class="nav-item">
+                <a class="nav-link" href="book.html" >Contact</a>
+              </li>
+            </ul>
+             <div class="user_option">
+<!--                 <a href="{% url 'login_page' %}" class="user_link" style="margin-right:100px;">-->
+<!--    <i class="fa fa-user-plus"  aria-hidden="true"></i>-->
+<!--</a>-->
+            <a href="{% url 'profile_page' %}" class="user_link customicon" style="margin-right:70px;">
+    <i class="fa fa-user" aria-hidden="true"></i>
+</a>
+<a class="cartcustom" href="{% url 'cart_page' %}">
+    <i class="fas fa-shopping-cart"></i>
+</a>              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" style="margin-top:16px;" aria-hidden="true"></i>
+                </button>
+              </form>
+              <a href="" class="order_online">
+                Order Online
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div><br>
+
+
+<section class="confirmation_part padding_top" style="margin-top:100px;margin-bottom:100px;">
+    <div class="container">
+
+        <div class="col-lg-12">
+
+        </div>
+
+        </div>
+
+        <div class="col-lg-10" style="margin-left:8vw;" >
+          <div class="single_confirmation_details">
+
+            <h4 style="font-size:23px;font-weight:bold;margin-bottom:20px;">Booking Details</h4>
+            
+<ul style="list-style: none;">
+  <li style="margin-bottom:10px;">
+    <p>Name</p><span>{{details.name}}</span>
+  </li>
+  <li style="margin-bottom:10px;">
+    <p>Age</p><span>{{details.age}}</span>
+  </li>
+  <li style="margin-bottom:10px;">
+    <p>Mobile Number</p><span>{{details.mobile_number}}</span>
+  </li>
+  <li style="margin-bottom:10px;">
+    <p>Email</p><span>{{details.email}}</span>
+  </li>
+ 
+  <li style="margin-bottom:10px;">
+    <p>Date</p><span>{{details.date}}</span>
+  </li>
+  <li style="margin-bottom:10px;">
+    <p>Train No.</p><span>{{details.train_number}}</span>
+  </li>
+  <li style="margin-bottom:10px;">
+    <p>Compartment No.</p><span>{{details.compartment_number}}</span>
+  </li>
+  <li style="margin-bottom:10px;">
+    <p>Seat No.</p><span>{{details.seat_number}}</span>
+  </li>
+  <li style="margin-bottom:10px;">
+    <p>Deliver Station Name</p><span>{{details.deliver_station}}</span>
+  </li>
+</ul>
+          </div>
+        </div>
+
+
+        <div class="col-lg-10 " style="margin-left:8vw;">
+          <div class="order_details_iner " >
+            <h4 style="font-weight:bold;">Order Details</h4>
+            <table class="table table-borderless" style="background-color:#f1f3f3 !important; ">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="2">Item</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+
+              <tbody>
+             {% for i in data %}
+                <tr>
+                  <th colspan="2">{{i.food.single_name}}<span></span></th>
+                  <th>x{{i.quantity}}</th>
+                  <th> <span>₹ {{i.tprice}}/-</span></th>
+                </tr>
+                {% endfor %}
+
+                <tr>
+
+                  <th colspan="3">Subtotal</th>
+                  <th> <span> ₹ {{total_price}}/-</span></th>
+                </tr>
+
+                <tr>
+                  <th colspan="3">Shipping</th>
+                  <th><span>₹ 70/-</span></th>
+                </tr>
+                <tr>
+                  <th colspan="3">Grand Total</th>
+                  <th><span>₹ {{grand_total}}/-</span></th>
+                </tr>
+
+              </tbody>
+              <br>
+              <tfoot>
+                <tr>
+                  <th scope="col" colspan="3">Payable Amount</th>
+                  <th scope="col">₹ {{grand_total}}/-</th>
+                </tr>
+              </tfoot>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+
+      <form id="orderForm" action="{% url 'place_order' %}" method="POST">
+        {% csrf_token %}
+          <input type="hidden" name="Username" value="{{request.session.Username}}">
+                      <input type="hidden" class="form-control" value="" name="name"/>
+                      <input type="hidden" class="form-control" id="last"value="" name="age"/>
+                      <input type="hidden" class="form-control" id="phone"value="" name="mobile_number"/>
+                      <input type="hidden" class="form-control" id="email"value="" name="email"/>
+          {% for i in data %}
+                <input type="hidden" class="form-control" value="{{ i.food.name }}" name="painting_name" placeholder="Painting Name" required/>
+                <input type="hidden" class="form-control" value="{{ i.food.image }}" name="painting_picture" placeholder="Painting Picture" required/>
+                <input type="hidden" class="form-control" value="{{ i.price }}" name="price" placeholder="Price" required/>
+                <input type="hidden" class="form-control" value="{{ i.quantity }}" name="quantity" placeholder="Quantity" required/>
+                {% endfor %}
+                      <input type="hidden" class="form-control" value="{{total_price}}" name="total_price" required/>
+                      <input type="hidden" class="form-control" value="70" name="shipping" required/>
+                      <input type="hidden" class="form-control" value="{{grand_total}}" name="grand_total" required/>
+
+                      <input type="hidden" class="form-control" value="{{grand_total}}" name="amountToBePaid" required/>
+
+                      <input type="hidden" value="COD" name="payment_method">
+
+                      <a type="button" class="cash-btn"  data-toggle="modal" data-target="#codConfirmationModal">Cash on Delivery</a>
+
+
+
+
+        </form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="modal fade" id="codConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="codConfirmationModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="codConfirmationModalLabel">
+                          <div style="display: flex; align-items: center;">
+                              <i class="fas fa-exclamation-circle" style="margin-right: 5px;margin-top:-28px;"></i>
+                              <div style="font-size:17px;">Are you sure you want to proceed with Cash On Delivery?</div>
+                          </div>
+                      </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+      
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" style="margin-top:20px;" data-dismiss="modal">Cancel</button>
+                      <button type="submit" form="orderForm" class="btn btn-primary" style="margin-top:20px;">Confirm</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+        
+        <form action="{% url 'place_order' %}" method="POST">
+          {% csrf_token %}
+            <input type="hidden" name="Username" value="{{request.session.Username}}">
+                        <input type="hidden" class="form-control" value="" name="name"/>
+                        <input type="hidden" class="form-control" id="last"value="" name="age"/>
+                        <input type="hidden" class="form-control" id="phone"value="" name="mobile_number"/>
+                        <input type="hidden" class="form-control" id="email"value="" name="email"/>
+            {% for i in data %}
+                  <input type="hidden" class="form-control" value="{{ i.food.name }}" name="painting_name" placeholder="Painting Name" required/>
+                  <input type="hidden" class="form-control" value="{{ i.food.image }}" name="painting_picture" placeholder="Painting Picture" required/>
+                  <input type="hidden" class="form-control" value="{{ i.price }}" name="price" placeholder="Price" required/>
+                  <input type="hidden" class="form-control" value="{{ i.quantity }}" name="quantity" placeholder="Quantity" required/>
+                  {% endfor %}
+                        <input type="hidden" class="form-control" value="{{total_price}}" name="total_price" required/>
+                        <input type="hidden" class="form-control" value="70" name="shipping" required/>
+                        <input type="hidden" class="form-control" value="{{grand_total}}" name="grand_total" required/>
+  
+                        <input type="hidden" class="form-control" value="{{grand_total}}" name="amountToBePaid" required/>
+  
+                        <input type="hidden" value="Razorpay" name="payment_method">
+  
+  
+  
+  <script
+      src="https://checkout.razorpay.com/v1/checkout.js"
+      data-key="rzp_test_IzIBFTmzd3zzKk"
+      data-amount="50000"
+      data-currency="INR"
+      data-order_id="{{ order_id }}"
+      data-name="Train Treats"
+          data-buttontext="Pay with Razorpay"
+      data-description="A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami"
+      data-image="https://example.com/your_logo.jpg"
+      data-prefill.name="Art Gallery"
+      data-prefill.email="artgallery@example.com"
+      data-theme.color="blue"
+      data-payment-methods="card,upi,emi,netbanking,wallet">
+  </script>
+  
+          </form>
+
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </section><br><br><br>
+
+
+ <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contact Us
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Feane
+            </a>
+            <p>
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Opening Hours
+          </h4>
+          <p>
+            Everyday
+          </p>
+          <p>
+            10.00 Am -10.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Free Html Templates</a><br><br>
+          &copy; <span id="displayYear"></span> Distributed By
+          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+  <!-- jQery -->
+  <script src="{% static 'Web/js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="{% static 'Web/js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="{% static 'Web/js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>

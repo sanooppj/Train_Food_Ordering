@@ -1,0 +1,453 @@
+{% extends 'vendor_index_page.html' %}
+{% load static %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+    .userspan{
+	 color: #fff;
+	font-weight: 700;
+	padding: 15px;
+	}
+
+		.userspan:hover{
+	color:#F28123;
+	}
+
+
+
+/*
+/* User Cards */
+.user-box {
+    width: 120px;
+    margin: auto;
+    margin-bottom: 20px;
+
+}
+
+.user-box img {
+    width: 120%;
+    border-radius: 50%;
+	padding: 3px;
+	background: #fff;
+	-webkit-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card .tab-content{
+	padding: 1rem 0 0 0;
+}
+
+.z-depth-3 {
+    -webkit-box-shadow: 0 11px 7px 0 rgba(0,0,0,0.19),0 13px 25px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 11px 7px 0 rgba(0,0,0,0.19),0 13px 25px 0 rgba(0,0,0,0.3);
+}
+
+
+	.customarrows:hover{
+	color:#44067b !important;
+	}
+
+
+
+
+  .alert-container {
+            position: fixed;
+            top: -100px; /* Initially off-screen */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 100%;
+            max-width: 400px; /* Adjust width as needed */
+            text-align: center;
+            animation: slideDown 0.5s forwards;
+        }
+
+        @keyframes slideDown {
+            0% {
+                top: -100px; /* Off-screen */
+            }
+            100% {
+                top: 100px; /* 100px down from top */
+            }
+        }
+
+.alert {
+	position: relative;
+	margin-bottom: 15px;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+
+.alert-success {
+	color: black;
+    background-color:white;
+	border: 1px solid green !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-warning {
+	color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+.alert-error {
+    color: black;
+    background-color:white;
+	border: 1px solid #F28123 !important;
+	font-size:15px;
+	font-weight:bold;
+}
+
+
+/* Custom styles for the modal */
+  #deleteAccountModal .modal-dialog {
+    max-width: 480px; /* Set the max-width */
+    margin: 100px auto 0; /* Center the modal horizontally and set distance from top to 100px */
+  }
+
+  #deleteAccountModal .modal-content {
+    height: 240px; /* Set the height */
+    background-color: white;
+    border:1px double #fd7e14;
+    border-radius: 10px; /* Add border radius of 10px */
+    padding: 20px 20px 0; /* Adjusted padding without bottom padding */
+}
+
+        #deleteAccountModal .modal-footer button {
+    margin-top: 60px; /* Adjust this value as needed */
+}
+
+/* Define the color when the button is clicked or active */
+    .customarrows:active {
+        color: black !important;
+    }
+
+  .user_link {
+    display: inline-block;
+    width: 35px; /* Adjust the width as needed to create a circle */
+    height: 35px; /* Adjust the height as needed to create a circle */
+    border-radius: 50%; /* This will create a circle */
+    text-align: center;
+    line-height: 40px; /* Center the icon vertically */
+    border: 2px solid #6909bd;; /* Set border color to violet */
+    background-color: transparent; /* No background color */
+    margin-right: 140px; /* Adjust margin-right as needed */
+}
+
+.user_link i {
+margin-top:7px;
+margin-left:1.5px;
+font-size:17px;
+color:#6909bd;
+}
+
+
+
+</style>
+</head>
+<body >
+
+
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-4">
+            <div class="profile-card-4 z-depth-3">
+            <div class="card">
+            <div class="card-body text-center  rounded-top"  style="background: linear-gradient(to bottom, #6909bd, #6909bd);">
+				{% for i in vendor_profile %}
+
+				<div class="d-flex justify-content-center mb-4 rounded-circle user-box">
+					<img  src="{{i.logo.url}}"
+					class="rounded-circle" style="width: 110px; height: 110px; object-fit: cover;" alt="example placeholder" />
+				</div>
+			{% empty %}
+			<div class="user-box">
+				<img src="{% static 'admin2/assets/images/usericon1.png' %}"  style="border:2px solid #6909bd;display:cover;" alt="" name="image" >
+			   </div>
+			   {% endfor %}
+			{% if request.session.Username %}
+            <h5 class="mb-1 text-white">{{request.session.Username}}</h5>
+			{% endif %}
+            </div>
+            <div class="card-body">
+            <ul class="list-group shadow-none">
+
+            <li class="list-group-item ">
+                <a href="{% url 'vendor_profile_page' %}" class="px-5 customarrows {% if request.resolver_match.url_name == 'profile_page' %}active{% endif %}" style="color:#6909bd;font-weight:bold;height:15px;padding-bottom:30px;"><i class="fas fa-tachometer-alt" style="margin-right:10px;"></i> Dashboard</span></a>
+                </li>
+         <li class="list-group-item">
+           <a href="{% url 'vendor_profile_edit' %}" class="px-5 customarrows {% if request.resolver_match.url_name == 'vendor_profile_edit' or request.resolver_match.url_name == 'vendor_profile_add-details' %}active{% endif %}" style="color:#6909bd;font-weight:bold;height:15px;padding-bottom:30px;"><i class="fas fa-user-edit" style="margin-right:10px;"></i>Edit Profile</a>
+			</li>
+
+				<li class="list-group-item">
+    <a href="#" class="px-5 customarrows" style="color: #6909bd; font-weight: bold; height: 15px; padding-bottom: 30px;" data-toggle="modal" data-target="#logoutModal">
+        <i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i> Logout
+    </a>
+</li>
+
+<!-- Logout Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                  <h5 class="modal-title" id="logoutModalLabel">
+                    <div style="display: flex; align-items: center;">
+					<i class="fas fa-exclamation-circle" style="margin-right: 6px;margin-top:-2px;"></i>
+                        <div>Are you sure you want to logout ?</div>
+                    </div>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" style="margin-top:20px;" data-dismiss="modal">Cancel</button>
+				&nbsp;
+                <a href="{% url 'user_logout' %}" class="btn btn-primary" style="margin-top:20px;">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+             <form action="{% url 'vendor_delete_account' %}" method="post">
+					{% csrf_token %}
+               <li class="list-group-item">
+					<button type="button" class=" px-5 customarrows" style="color:#6909bd;font-weight:bold;height:15px;padding-bottom:30px;border:none;background-color:white;" data-toggle="modal" data-target="#deleteAccountModal">
+						<i class="fas fa-trash" style="margin-right:10px;"></i> Delete Account
+					</button>
+				</li>
+
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" role="dialog" aria-labelledby="deleteAccountModalLabelw" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                  <h5 class="modal-title" id="deleteAccountModalLabel">
+                    <div style="display: flex; align-items: center;">
+					<i class="fas fa-exclamation-circle" style="margin-right: 6px;margin-top:-78px;"></i>
+                        <div>Are you sure you want to delete your account ?     <span><p>your all data will be deleted permanently and can't be restored.</p></span></div>
+
+                    </div>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" style="margin-top:20px;" data-dismiss="modal">Cancel</button>
+				&nbsp;
+				<button  type="submit" class="btn btn-primary" style="margin-top:20px;">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>				</form>
+
+
+
+            </ul>
+
+            </div>
+            </div>
+            </div>
+            </div>
+            <br><br><br>
+            <div class="col-lg-8">
+            <div class="card z-depth-3">
+            <div class="card-body">
+            <ul class="nav nav-pills nav-pills-primary nav-justified">
+
+            </ul>
+            <div class="tab-content p-3">
+            <div class="tab-pane active show" id="profile">
+                      <h3 class="p-2 " style="border-bottom: 2px solid #6909bd;font-weight:bold;">My Profile</h3><br><br>
+            <div class="row">
+				{% for i in vendor_profile %}
+
+            <div class="col-md-6">
+
+                  <h5><b>Username</b></h5>
+            {% if request.session.Username %}
+                <p>
+            {{request.session.Username}}
+            </p>
+                {%endif%}
+
+                <h5><b>Email</b></h5>
+            {% if request.session.Email %}
+                <p>
+            {{request.session.Email}}
+            </p>
+                {%endif%}
+                	<h5><b>Description</b></h5>
+            <p>
+{{ i.description|default:'Not filled' }}
+            </p>
+
+            <h5><b>Address</b></h5>
+            <p>
+{{ i.address|default:'Not filled' }}
+            </p>
+                <h5><b>Contact Number</b></h5>
+            <p>
+{{ i.contact|default:'Not filled' }}
+            </p>
+
+            <h5><b>Location</b></h5>
+            <p>
+               {{ i.location|default:'Not filled' }}
+
+                </p>
+                <h5><b>Website</b></h5>
+                <p>
+{{ i.website|default:'Not filled' }}
+                    </p>
+
+            <h5><b>Hobbies</b></h5>
+          
+            </div>
+			{% empty %}
+			<div class="col-md-6">
+			 <h5><b>Username</b></h5>
+            {% if request.session.Username %}
+                <p>
+            {{request.session.Username}}
+            </p>
+                {%endif%}
+
+                <h5><b>Email</b></h5>
+            {% if request.session.Email %}
+                <p>
+            {{request.session.Email}}
+            </p>
+                {%endif%}
+                <h5><b>Description</b></h5>
+            <p>
+{{ i.description|default:'Not filled' }}
+            </p>
+
+            <h5><b>Address</b></h5>
+            <p>
+{{ i.address|default:'Not filled' }}
+            </p>
+                <h5><b>Contact Number</b></h5>
+            <p>
+{{ i.contact|default:'Not filled' }}
+            </p>
+
+            <h5><b>Location</b></h5>
+            <p>
+               {{ i.location|default:'Not filled' }}
+
+                </p>
+                <h5><b>Website</b></h5>
+                <p>
+{{ i.website|default:'Not filled' }}
+                    </p>
+
+          
+			{% endfor %}
+
+
+            </div>
+
+{% if vendor_profile %}
+<form action="" method="post" class="text-center" id="deleteProfileForm">
+    {% csrf_token %}
+    <div class="cart-buttons" id="cart-buttons">
+        <button type="button" class="btn btn-danger delete-profile-button" data-toggle="modal" data-target="#deleteProfileModal">
+            Delete Profile
+        </button>
+    </div>
+
+
+<div class="modal fade" id="deleteProfileModal" tabindex="-1" role="dialog" aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                  <h5 class="modal-title" id="deleteProfileModalLabel">
+                    <div style="display: flex; align-items: center;">
+					<i class="fas fa-exclamation-circle" style="margin-right:-10px;margin-top:-28px;"></i>
+                        <div>Are you sure you want to remove your details ?</div>
+                    </div>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" style="margin-top:20px;" data-dismiss="modal">Cancel</button>
+				&nbsp;
+                <a href="{% url 'vendor_delete_profile' %}" class="btn btn-primary" style="margin-top:20px;">confim</a>
+            </div>
+        </div>
+    </div>
+</div>
+    </form>
+                {% endif %}
+            </div>
+
+
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+		</div>
+
+
+  <div style="margin-bottom:200px;">   </div>
+
+
+
+
+<!-- Add this script at the end of your HTML body -->
+ <div class="alert-container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {% if message.tags == 'error' %}
+                    <img src="{% static 'Web/images/error.png' %}" alt="Error Icon" style="margin-right:10px;" width="30px" height="28px"> <!-- Replace path/to/error-image.jpg with the path to your error image -->
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'success' %}
+                    <img src="{% static 'Web/images/green_tick.jpg' %}" alt="Error Icon" width="30px" height="28px">
+                                {{ message }}
+
+				{% endif %}
+				{% if message.tags == 'warning' %}
+                    <img src="{% static 'Web/images/warningicon.png' %}" style="margin-top:-7px !important;" alt="Error Icon" width="30px" height="28px">
+                               {{ message }}
+
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<script>
+    $(document).ready(function() {
+        // Hide alerts after 5 seconds
+        setTimeout(function() {
+            $('.alert-container').fadeOut('medium');
+        }, 3000);
+    });
+</script>
+        </div>
+</body>
+</html>
+{% endblock %}

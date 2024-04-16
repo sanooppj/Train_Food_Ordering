@@ -1,0 +1,179 @@
+{% extends 'admin_index_page.html' %}
+{% load static %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th, td {
+            text-align: center;
+            border: 1px solid #555;
+            border: 1px solid #555;
+
+        }
+
+        th {
+            background-color: rgb(211, 211, 229);
+        }
+
+        .description-cell {
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .description-line {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .description-content {
+            display: none;
+            white-space: pre-line;
+            overflow: hidden;
+        }
+
+        .expand-button,
+        .collapse-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px;
+            cursor: pointer;
+            color: blue;
+        }
+
+        .collapse-button {
+            display: none;
+        }
+
+        .action-container {
+            max-width:55px;
+        }
+
+        /* Add the following CSS for the specified columns */
+        .max-width-category {
+            max-width: 100px; /* Adjust the max-width as needed */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; /* Add ellipsis for overflow text */
+        }
+
+        .max-width-item {
+            max-width: 70px; /* Adjust the max-width as needed */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; /* Add ellipsis for overflow text */
+        }
+
+        .max-width-availability {
+            max-width: 80px; /* Adjust the max-width as needed */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; /* Add ellipsis for overflow text */
+        }
+
+
+        /* CSS for star ratings */
+.star-rating {
+    font-family: Arial, sans-serif;
+    font-size: 0; /* hides potential white spaces between inline-block elements */
+    unicode-bidi: bidi-override;
+    direction: rtl; /* for right to left filling of stars */
+}
+
+.star-rating span {
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+    width: 1.1em;
+    color: transparent; /* hide the underlying character */
+}
+
+.star-rating span:before {
+    content: "★"; /* star */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: orange; /* color of the stars */
+    z-index: 1; /* put the stars on top */
+}
+
+.star-rating span.filled:before {
+    z-index: 2; /* bring the filled stars above the others */
+    color: orange;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+<div class="card-body">
+    {% if reviews %}
+        <h3 style="color: blue; margin-bottom: 20px; margin-top: -20px;">Vendor Reviews</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Image</th>
+                    <th>Rating</th>
+                    <th>Date</th>
+                    <th>Review</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for review in reviews %}
+                <tr>
+                    <td>{{ review.reviewer_name }}</td>
+                    <td>
+                        <img src="{{ review.reviewer_image.url|default_if_none:'/media/images/usericon1.png' }}" alt="Reviewer's Image" style="width: 50px; height: 50px;">
+                    </td>
+                    <td>{{ review.rating }}/5</td>
+                    <td>{{ review.created_at|date:"Y-m-d H:i" }}</td>
+                    <td>{{ review.review_text|default:"No review text provided." }}</td>
+                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="font-size:20px;">No reviews yet.</p>
+    {% endif %}
+</div>
+    </div>
+</div>
+<script>
+    // Using event delegation for dynamically added elements
+    $(document).on("click", ".expand-button", function() {
+        expandDescription(this);
+    });
+
+    $(document).on("click", ".collapse-button", function() {
+        collapseDescription(this);
+    });
+
+    function expandDescription(button) {
+        var descriptionCell = $(button).parent(".description-cell");
+        descriptionCell.find(".description-line").hide();
+        descriptionCell.find(".description-content").slideDown();
+        $(button).hide();
+        descriptionCell.find(".collapse-button").show();
+    }
+
+    function collapseDescription(button) {
+        var descriptionCell = $(button).parent(".description-cell");
+        descriptionCell.find(".description-content").slideUp();
+        $(button).hide();
+        descriptionCell.find(".expand-button").show();
+        descriptionCell.find(".description-line").show();
+    }
+</script>
+
+</body>
+</html>
+{% endblock %}

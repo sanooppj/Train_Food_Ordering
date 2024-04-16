@@ -1,0 +1,50 @@
+{% extends 'admin_index_page.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .image-preview {
+            display: none; /* Hide the image preview by default */
+            margin-top: 10px;
+        }
+
+        .image-preview img {
+            width: 100px; /* Adjust the width of the previewed image */
+            height: auto; /* Maintain aspect ratio */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<form method="POST" action="{% url 'location_save' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 style="color: blue; margin-bottom:20px;" class="card-title">Location Information</h3>
+                	<input type="hidden" placeholder="upload painting" name="username" value="{{request.session.Username}}">
+
+
+
+              <div class="form-group">
+                    <label for="">Location Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter food name">
+                </div>
+                <br>
+
+
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+</body>
+</html>
+{% endblock %}
